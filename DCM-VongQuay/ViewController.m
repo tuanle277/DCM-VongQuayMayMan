@@ -56,6 +56,9 @@
     [super viewDidLoad];
     [self configureVariables];
     [self configureSpinButton];
+    [self buildCircle];
+    
+    UITableView *table
 //    vongQuay = [[VongQuay alloc] initWithFrame:self.view.frame
 //                                 withSections:numberOfSectors withDiameter:diameter];
 //    vongQuay.colors = colors;
@@ -64,7 +67,6 @@
 //    arrayOfSectors = vongQuay.arrayOfSectors;
 //    [self.view addSubview: vongQuay.circle];
 //    [self.view addSubview: vongQuay.indicator];
-    [self buildCircle];
 }
 
 - (void) configureSpinButton

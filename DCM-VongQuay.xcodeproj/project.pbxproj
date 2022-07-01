@@ -21,6 +21,8 @@
 		A4613660286AD6C500BEF4BB /* VongQuay.m in Sources */ = {isa = PBXBuildFile; fileRef = A461365F286AD6C500BEF4BB /* VongQuay.m */; };
 		A4613666286ADE3300BEF4BB /* PhanVongQuay.m in Sources */ = {isa = PBXBuildFile; fileRef = A4613665286ADE3300BEF4BB /* PhanVongQuay.m */; };
 		A4666E7B286EC90A0081294E /* Segment.m in Sources */ = {isa = PBXBuildFile; fileRef = A4666E7A286EC90A0081294E /* Segment.m */; };
+		A4666E7F286EF2C50081294E /* GiaiThuongModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4666E7E286EF2C50081294E /* GiaiThuongModel.m */; };
+		A4666E82286EF3160081294E /* NguoiChoiTrungGiaiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4666E81286EF3160081294E /* NguoiChoiTrungGiaiModel.m */; };
 		A488C8D3286D465600C9FC0B /* VePhanVongQuay.m in Sources */ = {isa = PBXBuildFile; fileRef = A488C8D2286D465600C9FC0B /* VePhanVongQuay.m */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +50,11 @@
 		A4613665286ADE3300BEF4BB /* PhanVongQuay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhanVongQuay.m; sourceTree = "<group>"; };
 		A4666E79286EC90A0081294E /* Segment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Segment.h; sourceTree = "<group>"; };
 		A4666E7A286EC90A0081294E /* Segment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Segment.m; sourceTree = "<group>"; };
+		A4666E7D286EF2C50081294E /* GiaiThuongModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiaiThuongModel.h; sourceTree = "<group>"; };
+		A4666E7E286EF2C50081294E /* GiaiThuongModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiaiThuongModel.m; sourceTree = "<group>"; };
+		A4666E80286EF3160081294E /* NguoiChoiTrungGiaiModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NguoiChoiTrungGiaiModel.h; sourceTree = "<group>"; };
+		A4666E81286EF3160081294E /* NguoiChoiTrungGiaiModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NguoiChoiTrungGiaiModel.m; sourceTree = "<group>"; };
+		A4666E86286EFE5E0081294E /* Note.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Note.md; sourceTree = "<group>"; };
 		A488C8D1286D465600C9FC0B /* VePhanVongQuay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VePhanVongQuay.h; sourceTree = "<group>"; };
 		A488C8D2286D465600C9FC0B /* VePhanVongQuay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VePhanVongQuay.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +90,7 @@
 		A4613637286AA03D00BEF4BB /* DCM-VongQuay */ = {
 			isa = PBXGroup;
 			children = (
+				A4666E7C286EF2AF0081294E /* Models */,
 				A4308044286C8F3E005CC431 /* Fortune-wheel.png */,
 				A461365A286ABA1700BEF4BB /* Icon */,
 				A4613638286AA03D00BEF4BB /* AppDelegate.h */,
@@ -93,10 +101,6 @@
 				A461363F286AA03D00BEF4BB /* ViewController.m */,
 				A461365E286AD6C500BEF4BB /* VongQuay.h */,
 				A461365F286AD6C500BEF4BB /* VongQuay.m */,
-				A4613664286ADE3300BEF4BB /* PhanVongQuay.h */,
-				A4613665286ADE3300BEF4BB /* PhanVongQuay.m */,
-				A4666E79286EC90A0081294E /* Segment.h */,
-				A4666E7A286EC90A0081294E /* Segment.m */,
 				A488C8D1286D465600C9FC0B /* VePhanVongQuay.h */,
 				A488C8D2286D465600C9FC0B /* VePhanVongQuay.m */,
 				A4613644286AA03F00BEF4BB /* Assets.xcassets */,
@@ -104,6 +108,7 @@
 				A4613641286AA03D00BEF4BB /* Main.storyboard */,
 				A4613649286AA03F00BEF4BB /* Info.plist */,
 				A461364A286AA03F00BEF4BB /* main.m */,
+				A4666E86286EFE5E0081294E /* Note.md */,
 			);
 			path = "DCM-VongQuay";
 			sourceTree = "<group>";
@@ -124,6 +129,21 @@
 				A4613662286AD78600BEF4BB /* QuartzCore.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A4666E7C286EF2AF0081294E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A4613664286ADE3300BEF4BB /* PhanVongQuay.h */,
+				A4613665286ADE3300BEF4BB /* PhanVongQuay.m */,
+				A4666E79286EC90A0081294E /* Segment.h */,
+				A4666E7A286EC90A0081294E /* Segment.m */,
+				A4666E7D286EF2C50081294E /* GiaiThuongModel.h */,
+				A4666E80286EF3160081294E /* NguoiChoiTrungGiaiModel.h */,
+				A4666E81286EF3160081294E /* NguoiChoiTrungGiaiModel.m */,
+				A4666E7E286EF2C50081294E /* GiaiThuongModel.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,10 +221,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4613660286AD6C500BEF4BB /* VongQuay.m in Sources */,
+				A4666E7F286EF2C50081294E /* GiaiThuongModel.m in Sources */,
 				A4613640286AA03D00BEF4BB /* ViewController.m in Sources */,
 				A4613666286ADE3300BEF4BB /* PhanVongQuay.m in Sources */,
 				A4666E7B286EC90A0081294E /* Segment.m in Sources */,
 				A461363A286AA03D00BEF4BB /* AppDelegate.m in Sources */,
+				A4666E82286EF3160081294E /* NguoiChoiTrungGiaiModel.m in Sources */,
 				A461364B286AA03F00BEF4BB /* main.m in Sources */,
 				A461363D286AA03D00BEF4BB /* SceneDelegate.m in Sources */,
 				A488C8D3286D465600C9FC0B /* VePhanVongQuay.m in Sources */,
