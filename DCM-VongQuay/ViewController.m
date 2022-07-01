@@ -2,6 +2,7 @@
 #import "PhanVongQuay.h"
 #import "VePhanVongQuay.h"
 #import "Segment.h"
+#import "VongQuay.h"
 
 @interface VongQuayViewController ()
 
@@ -12,6 +13,7 @@
     UIView *circle;
     UIView *indicator;
     CGFloat circleRotationInRadian;
+    VongQuay *vongQuay;
     NSTimer *timer;
     UILabel *im;
     NSMutableArray<PhanVongQuay *> *arrayOfSectors;
@@ -28,8 +30,6 @@
     int radius;
     float spinTime;
     int lanQuay;
-    int currentSector;
-    
 }
 
 #define PI 3.14
@@ -48,7 +48,7 @@
     rewards = [NSMutableArray arrayWithObjects:@"Thẻ nạp 1", @"Thẻ nạp 2", @"Thẻ nạp 3", @"Thẻ nạp 4", @"Thẻ nạp 5", @"Thẻ nạp 6", @"Thẻ nạp 7", @"Thẻ nạp 8", nil];
     
     // danh sách màu từng phần vòng quay
-    colors = [NSMutableArray arrayWithObjects: UIColor.greenColor, UIColor.blueColor, UIColor.yellowColor, UIColor.blackColor, UIColor.greenColor, UIColor.grayColor, UIColor.orangeColor, UIColor.whiteColor, nil];
+    colors = [NSMutableArray arrayWithObjects: UIColor.blackColor, UIColor.blueColor, UIColor.yellowColor, UIColor.whiteColor, UIColor.greenColor, UIColor.grayColor, UIColor.orangeColor, UIColor.whiteColor, nil];
 
 }
 
@@ -56,8 +56,15 @@
     [super viewDidLoad];
     [self configureVariables];
     [self configureSpinButton];
+//    vongQuay = [[VongQuay alloc] initWithFrame:self.view.frame
+//                                 withSections:numberOfSectors withDiameter:diameter];
+//    vongQuay.colors = colors;
+//    vongQuay.rewards = rewards;
+//    [vongQuay buildCircle];
+//    arrayOfSectors = vongQuay.arrayOfSectors;
+//    [self.view addSubview: vongQuay.circle];
+//    [self.view addSubview: vongQuay.indicator];
     [self buildCircle];
-    
 }
 
 - (void) configureSpinButton
@@ -149,35 +156,39 @@
 // Building the wheel (needs partitioning)**
 - (void) buildCircle
 {
+    
+//    UIImageView *wheelBG = [[UIImageView alloc] initWithFrame: CGRectMake((self.view.frame.size.width - diameter - 120) / 2, 340, radius * 2 + 120, radius * 2 + 120)];
+//    wheelBG.image = [UIImage imageNamed: @"Fortune-wheel.png"];
+//    [self.view addSubview: wheelBG];
+    
+    // Tạo nền của vòng quay
     circle = [[UIView alloc] initWithFrame: CGRectMake((self.view.frame.size.width - diameter) / 2, 400, radius * 2, radius * 2)];
     circle.layer.cornerRadius = radius;
     circle.backgroundColor = UIColor.whiteColor;
-    
+
     // Tạo các phần của vòng quay
     VePhanVongQuay *sectors = [[VePhanVongQuay alloc] init];
     sectors.startAngle = -PI - 2 * PI / numberOfSectors / 2;
     sectors.radius = radius;
     sectors.frame = circle.bounds;
     sectors.arrayOfSegments = [NSMutableArray array];
-    
+
     for (int i = 0; i < numberOfSectors; i++)
     {
         [sectors.arrayOfSegments addObject: [[Segment alloc] initWithColor: colors[i] andValue:40]];
     }
-    
+
     indicator = [[UIView alloc] initWithFrame:CGRectMake(10, 575, (self.view.frame.size.width - diameter) / 2 - 10, 1)];
     indicator.backgroundColor = UIColor.whiteColor;
-    
+  
     [self.view addSubview: circle];
     [circle addSubview: sectors];
     [self.view addSubview: indicator];
-//    UIImageView *wheelBG = [[UIImageView alloc] initWithFrame: circle.frame];
-//    wheelBG.image = [UIImage imageNamed: @"Fortune-wheel.png"];
-//    [self.view addSubview: wheelBG];
+
     [self buildItems];
     [self buildSectors];
 }
-    
+
 - (void) buildItems
 {
     // make items (UILabel)
@@ -185,12 +196,19 @@
         UILabel *word = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, radius, 70)];
         word.text = rewards[i];
         word.font = [UIFont fontWithName: @"Times new roman" size: 30];
-        word.textColor = UIColor.whiteColor;
+        if (i <= 1)
+        {
+            word.textColor = UIColor.whiteColor;
+        }
+        else
+        {
+            word.textColor = UIColor.blackColor;
+        }
         word.layer.anchorPoint = CGPointMake(1.0f, 0.5f);
         word.layer.position = CGPointMake(circle.bounds.size.width/2.0,circle.bounds.size.height/2.0);
         word.transform = CGAffineTransformMakeRotation(PI * 2 / numberOfSectors * i);
         [circle addSubview: word];
-}
+    }
 }
 
 - (void) buildSectors
@@ -276,7 +294,7 @@
                 break;
             }
         }
-        
+
         CGAffineTransform t = CGAffineTransformRotate(circle.transform, -newVal);
         circle.transform = t;
         circleRotationInRadian = atan2f(circle.transform.b, circle.transform.a);
@@ -285,6 +303,17 @@
         lanQuay -= 1;
         self.lanQuayLabel.text = [NSString stringWithFormat: @"%d", lanQuay];
     }
+}
+
+- (void) getSpinResult
+{
+    NSLog(@"get spin result first");
+    circleRotationInRadian = vongQuay.circleRotationInRadian;
+    NSLog (@"rotated %f", circleRotationInRadian);
+    [self configureWinningAlert: [rewards objectAtIndex: [self getTag: circleRotationInRadian]]];
+    [self presentViewController: prizeAlert animated:YES completion:nil];
+    lanQuay -= 1;
+    self.lanQuayLabel.text = [NSString stringWithFormat: @"%d", lanQuay];
 }
 
 - (int) getTag: (float) radian
@@ -314,6 +343,7 @@
         spinTime = 0.0001;
         [timer invalidate];
         [self turnOffRotation];
+//        [self getSpinResult];
         spinning = false;
     }
 }

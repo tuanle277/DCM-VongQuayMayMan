@@ -8,11 +8,28 @@ NS_ASSUME_NONNULL_BEGIN
 @interface VongQuay : UIView
 
 @property UIView *circle;
-@property UIView
+@property UIView *indicator;
+@property NSMutableArray <UIColor *> *colors;
+@property NSMutableArray *arrayOfSectors;
+@property NSMutableArray *rewards;
+@property NSTimer *timer;
+@property CGFloat circleRotationInRadian;
+@property float spinTime;
+@property int numberOfSectors;
+@property int diameter;
+@property int radius;
 
-- (id) initWithFrame:(CGRect)frame withSections:(int)sectionsNumber;
 
-- (void) rotate;
+- (void) buildCircle;
+- (void) buildSectors;
+- (void) buildItems;
+- (void) buildUpRotation;
+- (void) updateUp;
+- (void) turnOffRotation;
+- (void) updateDown;
+- (id) initWithFrame:(CGRect)frame  withSections:(int)sectionsNumber withDiameter: (int)diameter;
+
+//- (void) rotate;
 
 @end
 
