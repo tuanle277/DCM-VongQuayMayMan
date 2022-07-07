@@ -15,8 +15,24 @@ Chưa làm
     - đưa background của vòng quay may mắn vào UI
     - Nối dữ liệu với database
     - Auto layout
+    - call APIs
 
 Đang làm
     - Tạo dữ liệu giả
     - Build tableview và alert view cho các button (thưởng, cơ cấu, trúng giải)
+
+
+
+Lists of UI:
+- buttonsContainer
+- coCaubtn
+- thuongBtn
+- trungGiaiBtn
+- coCauLabel
+- thuongLabel
+- trungGiaiLabel
+- lanQuayContainer
+- lanQuayLbl (lan quay)
+- lanQuayLabel (0)
+- lanQuayBtn
 

@@ -1,6 +1,5 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "HanhDongQuay.h"
 #import "PhanVongQuay.h"
 
 NS_ASSUME_NONNULL_BEGIN

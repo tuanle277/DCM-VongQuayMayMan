@@ -30,6 +30,8 @@
         CGContextMoveToPoint(context, rectCenter.x, rectCenter.y);
         CGContextAddArc(context, rectCenter.x, rectCenter.y, self.radius, self.startAngle, self.endAngle, false);
         CGContextFillPath(context);
+        CGContextSetStrokeColorWithColor(context, [UIColor.yellowColor CGColor]);
+        CGContextStrokeEllipseInRect(context, self.frame);
         self.startAngle = self.endAngle;
     }
 }

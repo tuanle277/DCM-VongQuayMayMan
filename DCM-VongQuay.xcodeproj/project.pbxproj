@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53CF405A1FD4D637129E9584 /* Pods_DCM_VongQuay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B0C69182A23765756C350E /* Pods_DCM_VongQuay.framework */; };
 		A4308045286C8F3F005CC431 /* Fortune-wheel.png in Resources */ = {isa = PBXBuildFile; fileRef = A4308044286C8F3E005CC431 /* Fortune-wheel.png */; };
 		A461363A286AA03D00BEF4BB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4613639286AA03D00BEF4BB /* AppDelegate.m */; };
 		A461363D286AA03D00BEF4BB /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A461363C286AA03D00BEF4BB /* SceneDelegate.m */; };
@@ -15,18 +16,24 @@
 		A4613645286AA03F00BEF4BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4613644286AA03F00BEF4BB /* Assets.xcassets */; };
 		A4613648286AA03F00BEF4BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4613646286AA03F00BEF4BB /* LaunchScreen.storyboard */; };
 		A461364B286AA03F00BEF4BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A461364A286AA03F00BEF4BB /* main.m */; };
-		A4613657286ABA0F00BEF4BB /* gift.png in Resources */ = {isa = PBXBuildFile; fileRef = A4613654286ABA0F00BEF4BB /* gift.png */; };
-		A4613658286ABA0F00BEF4BB /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = A4613655286ABA0F00BEF4BB /* sun.png */; };
-		A4613659286ABA0F00BEF4BB /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = A4613656286ABA0F00BEF4BB /* list.png */; };
 		A4613660286AD6C500BEF4BB /* VongQuay.m in Sources */ = {isa = PBXBuildFile; fileRef = A461365F286AD6C500BEF4BB /* VongQuay.m */; };
 		A4613666286ADE3300BEF4BB /* PhanVongQuay.m in Sources */ = {isa = PBXBuildFile; fileRef = A4613665286ADE3300BEF4BB /* PhanVongQuay.m */; };
 		A4666E7B286EC90A0081294E /* Segment.m in Sources */ = {isa = PBXBuildFile; fileRef = A4666E7A286EC90A0081294E /* Segment.m */; };
 		A4666E7F286EF2C50081294E /* GiaiThuongModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4666E7E286EF2C50081294E /* GiaiThuongModel.m */; };
 		A4666E82286EF3160081294E /* NguoiChoiTrungGiaiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4666E81286EF3160081294E /* NguoiChoiTrungGiaiModel.m */; };
+		A46D0E8928743490001170A8 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = A46D0E8828743490001170A8 /* Utility.m */; };
+		A4751C9C2875737E00398B2E /* CoCauView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4751C9B2875737E00398B2E /* CoCauView.m */; };
+		A4751C9E287573A100398B2E /* CoCauView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4751C9D287573A100398B2E /* CoCauView.xib */; };
+		A4751CA52875749400398B2E /* CoCauCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4751CA32875749400398B2E /* CoCauCell.m */; };
+		A4751CA62875749400398B2E /* CoCauCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4751CA42875749400398B2E /* CoCauCell.xib */; };
 		A488C8D3286D465600C9FC0B /* VePhanVongQuay.m in Sources */ = {isa = PBXBuildFile; fileRef = A488C8D2286D465600C9FC0B /* VePhanVongQuay.m */; };
+		A4FDB77728769A200050BA00 /* CoCauHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDB77528769A200050BA00 /* CoCauHeader.m */; };
+		A4FDB77828769A200050BA00 /* CoCauHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4FDB77628769A200050BA00 /* CoCauHeader.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		84B0C69182A23765756C350E /* Pods_DCM_VongQuay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DCM_VongQuay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A13C8FB2E757C457AA660241 /* Pods-DCM-VongQuay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCM-VongQuay.release.xcconfig"; path = "Target Support Files/Pods-DCM-VongQuay/Pods-DCM-VongQuay.release.xcconfig"; sourceTree = "<group>"; };
 		A4308044286C8F3E005CC431 /* Fortune-wheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Fortune-wheel.png"; sourceTree = "<group>"; };
 		A4613635286AA03D00BEF4BB /* DCM-VongQuay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DCM-VongQuay.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4613638286AA03D00BEF4BB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -40,9 +47,6 @@
 		A4613647286AA03F00BEF4BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4613649286AA03F00BEF4BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A461364A286AA03F00BEF4BB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A4613654286ABA0F00BEF4BB /* gift.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gift.png; sourceTree = "<group>"; };
-		A4613655286ABA0F00BEF4BB /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = "<group>"; };
-		A4613656286ABA0F00BEF4BB /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
 		A461365E286AD6C500BEF4BB /* VongQuay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VongQuay.h; sourceTree = "<group>"; };
 		A461365F286AD6C500BEF4BB /* VongQuay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VongQuay.m; sourceTree = "<group>"; };
 		A4613662286AD78600BEF4BB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -55,8 +59,20 @@
 		A4666E80286EF3160081294E /* NguoiChoiTrungGiaiModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NguoiChoiTrungGiaiModel.h; sourceTree = "<group>"; };
 		A4666E81286EF3160081294E /* NguoiChoiTrungGiaiModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NguoiChoiTrungGiaiModel.m; sourceTree = "<group>"; };
 		A4666E86286EFE5E0081294E /* Note.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Note.md; sourceTree = "<group>"; };
+		A46D0E8728743490001170A8 /* Utility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		A46D0E8828743490001170A8 /* Utility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
+		A4751C9A2875737E00398B2E /* CoCauView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoCauView.h; sourceTree = "<group>"; };
+		A4751C9B2875737E00398B2E /* CoCauView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoCauView.m; sourceTree = "<group>"; };
+		A4751C9D287573A100398B2E /* CoCauView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoCauView.xib; sourceTree = "<group>"; };
+		A4751CA22875749400398B2E /* CoCauCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoCauCell.h; sourceTree = "<group>"; };
+		A4751CA32875749400398B2E /* CoCauCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoCauCell.m; sourceTree = "<group>"; };
+		A4751CA42875749400398B2E /* CoCauCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoCauCell.xib; sourceTree = "<group>"; };
 		A488C8D1286D465600C9FC0B /* VePhanVongQuay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VePhanVongQuay.h; sourceTree = "<group>"; };
 		A488C8D2286D465600C9FC0B /* VePhanVongQuay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VePhanVongQuay.m; sourceTree = "<group>"; };
+		A4FDB77428769A200050BA00 /* CoCauHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoCauHeader.h; sourceTree = "<group>"; };
+		A4FDB77528769A200050BA00 /* CoCauHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoCauHeader.m; sourceTree = "<group>"; };
+		A4FDB77628769A200050BA00 /* CoCauHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoCauHeader.xib; sourceTree = "<group>"; };
+		B1A908DCF3715E3BA3B3FFAD /* Pods-DCM-VongQuay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCM-VongQuay.debug.xcconfig"; path = "Target Support Files/Pods-DCM-VongQuay/Pods-DCM-VongQuay.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,18 +80,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53CF405A1FD4D637129E9584 /* Pods_DCM_VongQuay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		74BACC272131C0876060869D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B1A908DCF3715E3BA3B3FFAD /* Pods-DCM-VongQuay.debug.xcconfig */,
+				A13C8FB2E757C457AA660241 /* Pods-DCM-VongQuay.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		A461362C286AA03D00BEF4BB = {
 			isa = PBXGroup;
 			children = (
 				A4613637286AA03D00BEF4BB /* DCM-VongQuay */,
 				A4613636286AA03D00BEF4BB /* Products */,
 				A4613661286AD78500BEF4BB /* Frameworks */,
+				74BACC272131C0876060869D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,19 +117,18 @@
 		A4613637286AA03D00BEF4BB /* DCM-VongQuay */ = {
 			isa = PBXGroup;
 			children = (
+				A4FDB7792876D7180050BA00 /* CoCau */,
+				A4751CA92875916600398B2E /* Views */,
 				A4666E7C286EF2AF0081294E /* Models */,
 				A4308044286C8F3E005CC431 /* Fortune-wheel.png */,
-				A461365A286ABA1700BEF4BB /* Icon */,
 				A4613638286AA03D00BEF4BB /* AppDelegate.h */,
 				A4613639286AA03D00BEF4BB /* AppDelegate.m */,
 				A461363B286AA03D00BEF4BB /* SceneDelegate.h */,
+				A46D0E8728743490001170A8 /* Utility.h */,
+				A46D0E8828743490001170A8 /* Utility.m */,
 				A461363C286AA03D00BEF4BB /* SceneDelegate.m */,
 				A461363E286AA03D00BEF4BB /* ViewController.h */,
 				A461363F286AA03D00BEF4BB /* ViewController.m */,
-				A461365E286AD6C500BEF4BB /* VongQuay.h */,
-				A461365F286AD6C500BEF4BB /* VongQuay.m */,
-				A488C8D1286D465600C9FC0B /* VePhanVongQuay.h */,
-				A488C8D2286D465600C9FC0B /* VePhanVongQuay.m */,
 				A4613644286AA03F00BEF4BB /* Assets.xcassets */,
 				A4613646286AA03F00BEF4BB /* LaunchScreen.storyboard */,
 				A4613641286AA03D00BEF4BB /* Main.storyboard */,
@@ -113,20 +139,11 @@
 			path = "DCM-VongQuay";
 			sourceTree = "<group>";
 		};
-		A461365A286ABA1700BEF4BB /* Icon */ = {
-			isa = PBXGroup;
-			children = (
-				A4613654286ABA0F00BEF4BB /* gift.png */,
-				A4613656286ABA0F00BEF4BB /* list.png */,
-				A4613655286ABA0F00BEF4BB /* sun.png */,
-			);
-			path = Icon;
-			sourceTree = "<group>";
-		};
 		A4613661286AD78500BEF4BB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				A4613662286AD78600BEF4BB /* QuartzCore.framework */,
+				84B0C69182A23765756C350E /* Pods_DCM_VongQuay.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -139,11 +156,46 @@
 				A4666E79286EC90A0081294E /* Segment.h */,
 				A4666E7A286EC90A0081294E /* Segment.m */,
 				A4666E7D286EF2C50081294E /* GiaiThuongModel.h */,
+				A4666E7E286EF2C50081294E /* GiaiThuongModel.m */,
 				A4666E80286EF3160081294E /* NguoiChoiTrungGiaiModel.h */,
 				A4666E81286EF3160081294E /* NguoiChoiTrungGiaiModel.m */,
-				A4666E7E286EF2C50081294E /* GiaiThuongModel.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		A4751CA92875916600398B2E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A4751CAA2875917000398B2E /* VongQuay */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A4751CAA2875917000398B2E /* VongQuay */ = {
+			isa = PBXGroup;
+			children = (
+				A461365E286AD6C500BEF4BB /* VongQuay.h */,
+				A461365F286AD6C500BEF4BB /* VongQuay.m */,
+				A488C8D1286D465600C9FC0B /* VePhanVongQuay.h */,
+				A488C8D2286D465600C9FC0B /* VePhanVongQuay.m */,
+			);
+			path = VongQuay;
+			sourceTree = "<group>";
+		};
+		A4FDB7792876D7180050BA00 /* CoCau */ = {
+			isa = PBXGroup;
+			children = (
+				A4751C9A2875737E00398B2E /* CoCauView.h */,
+				A4751C9B2875737E00398B2E /* CoCauView.m */,
+				A4751C9D287573A100398B2E /* CoCauView.xib */,
+				A4FDB77428769A200050BA00 /* CoCauHeader.h */,
+				A4FDB77528769A200050BA00 /* CoCauHeader.m */,
+				A4FDB77628769A200050BA00 /* CoCauHeader.xib */,
+				A4751CA22875749400398B2E /* CoCauCell.h */,
+				A4751CA32875749400398B2E /* CoCauCell.m */,
+				A4751CA42875749400398B2E /* CoCauCell.xib */,
+			);
+			path = CoCau;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,9 +205,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A461364E286AA03F00BEF4BB /* Build configuration list for PBXNativeTarget "DCM-VongQuay" */;
 			buildPhases = (
+				417918D0513B120A41513B91 /* [CP] Check Pods Manifest.lock */,
 				A4613631286AA03D00BEF4BB /* Sources */,
 				A4613632286AA03D00BEF4BB /* Frameworks */,
 				A4613633286AA03D00BEF4BB /* Resources */,
+				A7C40222476886D292BC1E76 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -204,16 +258,58 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4613648286AA03F00BEF4BB /* LaunchScreen.storyboard in Resources */,
-				A4613657286ABA0F00BEF4BB /* gift.png in Resources */,
-				A4613658286ABA0F00BEF4BB /* sun.png in Resources */,
 				A4308045286C8F3F005CC431 /* Fortune-wheel.png in Resources */,
 				A4613645286AA03F00BEF4BB /* Assets.xcassets in Resources */,
+				A4751CA62875749400398B2E /* CoCauCell.xib in Resources */,
 				A4613643286AA03D00BEF4BB /* Main.storyboard in Resources */,
-				A4613659286ABA0F00BEF4BB /* list.png in Resources */,
+				A4FDB77828769A200050BA00 /* CoCauHeader.xib in Resources */,
+				A4751C9E287573A100398B2E /* CoCauView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		417918D0513B120A41513B91 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DCM-VongQuay-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7C40222476886D292BC1E76 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DCM-VongQuay/Pods-DCM-VongQuay-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DCM-VongQuay/Pods-DCM-VongQuay-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DCM-VongQuay/Pods-DCM-VongQuay-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A4613631286AA03D00BEF4BB /* Sources */ = {
@@ -222,11 +318,15 @@
 			files = (
 				A4613660286AD6C500BEF4BB /* VongQuay.m in Sources */,
 				A4666E7F286EF2C50081294E /* GiaiThuongModel.m in Sources */,
+				A4751CA52875749400398B2E /* CoCauCell.m in Sources */,
 				A4613640286AA03D00BEF4BB /* ViewController.m in Sources */,
 				A4613666286ADE3300BEF4BB /* PhanVongQuay.m in Sources */,
+				A4751C9C2875737E00398B2E /* CoCauView.m in Sources */,
 				A4666E7B286EC90A0081294E /* Segment.m in Sources */,
 				A461363A286AA03D00BEF4BB /* AppDelegate.m in Sources */,
 				A4666E82286EF3160081294E /* NguoiChoiTrungGiaiModel.m in Sources */,
+				A46D0E8928743490001170A8 /* Utility.m in Sources */,
+				A4FDB77728769A200050BA00 /* CoCauHeader.m in Sources */,
 				A461364B286AA03F00BEF4BB /* main.m in Sources */,
 				A461363D286AA03D00BEF4BB /* SceneDelegate.m in Sources */,
 				A488C8D3286D465600C9FC0B /* VePhanVongQuay.m in Sources */,
@@ -367,6 +467,7 @@
 		};
 		A461364F286AA03F00BEF4BB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1A908DCF3715E3BA3B3FFAD /* Pods-DCM-VongQuay.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -380,6 +481,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -394,6 +496,7 @@
 		};
 		A4613650286AA03F00BEF4BB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A13C8FB2E757C457AA660241 /* Pods-DCM-VongQuay.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -407,6 +510,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

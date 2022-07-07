@@ -7,6 +7,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSString *coCau;
 @property NSString *phanThuong;
 @property NSString *thoiGianTrungThuong;
+@property int soLuong;
+
+- (id) initWithInfo: (NSString *) newCoCau withPhanThuong: (NSString *) newPhanThuong andSoLuong: (int) soLuong;
+
+- (id) initWithInfo: (NSString *) newCoCau withPhanThuong: (NSString *) newPhanThuong withThoiGian: (NSString *) newTime;
 
 @end
 
