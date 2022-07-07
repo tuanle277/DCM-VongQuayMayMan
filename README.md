@@ -10,6 +10,8 @@
     - Khi kết thúc vòng quay thì present Alert để thông báo giải thưởng trúng được
     - Build alert view để nhập voucher để tăng lượt quay (không quay khi lượt quay = 0, mỗi lần quay giảm 1)
     - Hầu hết số liệu là biến
+    - Build tableview và pop-up view cho button cơ cấu
+    - Thử với dữ liệu g
 
 Chưa làm
     - Partition code (đưa vòng tròn thành object)
@@ -19,6 +21,5 @@ Chưa làm
     - Auto layout
 
 Đang làm
-    - Tạo dữ liệu giả
-    - Build tableview và alert view cho các button (thưởng, cơ cấu, trúng giải)
+    - Build tableview và alert view cho các button (thưởng, trúng giải)
 
