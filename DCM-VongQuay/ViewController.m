@@ -5,7 +5,6 @@
 #import "VongQuay.h"
 #import "Utility.h"
 #import "GiaiThuongModel.h"
-#import "CoCauTableView.h"
 #import "CoCauView.h"
 
 
@@ -60,7 +59,7 @@
     arrayOfSectors = [[NSMutableArray alloc]init];
     
     // danh sách giải thưởng
-    rewards = [NSMutableArray arrayWithObjects:@"Thẻ nạp 1", @"Thẻ nạp 2", @"Thẻ nạp 3", @"Thẻ nạp 4", @"Thẻ nạp 5", @"Thẻ nạp 6", @"Thẻ nạp 7", @"Thẻ nạp 8", nil];
+    rewards = [NSMutableArray arrayWithObjects:@"Thẻ nạp 1", @"Thẻ nạp 2", @"Thẻ nạp 3", @"Thẻ nạp 4", @"Thẻ nạp 5", @"Thẻ nạp 6", @"Thẻ nạp 200.000k", @"Thẻ nạp 8", nil];
     
     // danh sách màu từng phần vòng quay
     colors = [NSMutableArray arrayWithObjects: UIColor.blackColor, UIColor.blueColor, UIColor.yellowColor, UIColor.whiteColor, UIColor.greenColor, UIColor.grayColor, UIColor.orangeColor, UIColor.whiteColor, nil];
@@ -103,6 +102,8 @@
     [[self.spinBtn.bottomAnchor constraintEqualToAnchor: self.view.bottomAnchor constant: -(screenHeight / 10 - self.spinBtn.frame.size.height)] setActive: TRUE];
     [[self.spinBtn.rightAnchor constraintEqualToAnchor: self.view.rightAnchor constant: -(screenWidth - self.spinBtn.frame.size.width) / 2] setActive: TRUE];
 }
+
+#pragma mark autolayout
 
 - (void) configureTitles
 {
@@ -212,7 +213,7 @@
 
 - (IBAction)coCauAction:(UIButton *)sender
 {
-    CoCauView *view = [[CoCauView alloc] initWithFrame: CGRectMake((self.view.frame.size.width - 350) / 2, (self.view.frame.size.height - 300) / 2, 350, 300) withData: giaiThuongData];
+    CoCauView *view = [[CoCauView alloc] initWithFrame: CGRectMake(screenWidth / 16, screenHeight * 5 / 16 , screenWidth * 7 / 8, screenHeight * 3 / 8) withData: giaiThuongData];
     [view show];
 }
 
@@ -266,7 +267,9 @@
     for (int i = 0; i < numberOfSectors; i++) {
         UILabel *word = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, radius, 70)];
         word.text = rewards[i];
-        word.font = [UIFont fontWithName: @"Times new roman" size: 30];
+        word.adjustsFontSizeToFitWidth = TRUE;
+        word.numberOfLines = 2;
+        word.font = [UIFont fontWithName: @"Times new roman" size:26];
         if (i <= 1)
         {
             word.textColor = UIColor.whiteColor;

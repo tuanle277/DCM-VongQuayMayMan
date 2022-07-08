@@ -24,6 +24,9 @@
     self.phanThuongLabel.text = phanThuong.phanThuong;
     self.soLuongLabel.text = [NSString stringWithFormat: @"%d", phanThuong.soLuong];
     self.indexPath = indexPath;
+    self.giaiContainer.layer.borderWidth = 1.0;
+    self.phanThuongContainer.layer.borderWidth = 1.0;
+    self.soLuongContainer.layer.borderWidth = 1.0;
 }
 
 @end

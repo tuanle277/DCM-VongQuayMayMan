@@ -31,6 +31,7 @@
     tableView.rowHeight = 85;
     tableView.estimatedRowHeight = 85;
     CoCauHeader *header = [[CoCauHeader alloc] initWithFrame: CGRectMake(backgroundView.bounds.origin.x, backgroundView.bounds.origin.y, backgroundView.bounds.size.width, 100)];
+    backgroundView.layer.borderWidth = 2.0;
     [superview addSubview: self];
     [superview addSubview: backgroundView];
     [backgroundView addSubview: header];
