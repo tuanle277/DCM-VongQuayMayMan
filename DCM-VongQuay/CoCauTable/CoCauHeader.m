@@ -1,10 +1,3 @@
-//
-//  CoCauHeader.m
-//  DCM-VongQuay
-//
-//  Created by tuanlm on 7/7/22.
-//
-
 #import "CoCauHeader.h"
 
 @implementation CoCauHeader

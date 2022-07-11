@@ -10,10 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CoCauHeader">
             <connections>
-                <outlet property="coCauLabel" destination="Hso-W7-Noh" id="NTW-Rb-vhJ"/>
                 <outlet property="headerView" destination="H2p-sc-9uM" id="QE0-uS-m5u"/>
-                <outlet property="phanThuongLabel" destination="idL-CL-FY8" id="6gi-VI-BRG"/>
-                <outlet property="soLuongLabel" destination="muq-Sz-FxV" id="bdw-rP-2sQ"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

@@ -6,6 +6,9 @@
 #import "Utility.h"
 #import "GiaiThuongModel.h"
 #import "CoCauView.h"
+#include <stdlib.h>
+#import "NguoiChoiTrungGiaiModel.h"
+#import "TrungGiaiView.h"
 
 
 @interface VongQuayViewController ()
@@ -25,6 +28,7 @@
     NSMutableArray<PhanVongQuay *> *arrayOfSectors;
     NSMutableArray<NSString *> *rewards;
     NSMutableArray<GiaiThuong *> *giaiThuongData;
+    NSMutableArray<NguoiChoiTrungGiai *> *nguoiChoiTrungGiaiData;
     CGFloat sectorLength;
     UIAlertController *prizeAlert;
     UIAlertController *voucherDecisionAlert;
@@ -33,11 +37,14 @@
     NSString *voucher;
     NSMutableArray *colors;
     int numberOfSectors;
+    int count;
     BOOL spinning;
     int diameter;
     int radius;
     float spinTime;
+    int spinTimeInSecond;
     int lanQuay;
+    int rewardIndex;
 }
 
 @synthesize sectorLabel = _sectorLabel;
@@ -45,7 +52,6 @@
 @synthesize screenHeight = _screenHeight;
 
 #define PI 3.14
-
 
 - (void) configureVariables
 {
@@ -55,17 +61,20 @@
     diameter = screenWidth * 8/9;
     radius = diameter / 2;
     numberOfSectors = 8;
+    spinTimeInSecond = 5;
     sectorLength = PI * 2 / numberOfSectors;
     arrayOfSectors = [[NSMutableArray alloc]init];
     
     // danh sách giải thưởng
-    rewards = [NSMutableArray arrayWithObjects:@"Thẻ nạp 1", @"Thẻ nạp 2", @"Thẻ nạp 3", @"Thẻ nạp 4", @"Thẻ nạp 5", @"Thẻ nạp 6", @"Thẻ nạp 200.000k", @"Thẻ nạp 8", nil];
+    rewards = [NSMutableArray arrayWithObjects:@"Thẻ nạp 1", @"Thẻ nạp 2", @"Thẻ nạp 3", @"Thẻ nạp 4", @"Thẻ nạp 5", @"Thẻ nạp 6", @"Thẻ nạp 7", @"Thẻ nạp 8", nil];
     
     // danh sách màu từng phần vòng quay
     colors = [NSMutableArray arrayWithObjects: UIColor.blackColor, UIColor.blueColor, UIColor.yellowColor, UIColor.whiteColor, UIColor.greenColor, UIColor.grayColor, UIColor.orangeColor, UIColor.whiteColor, nil];
     
     // danh sách giải thưởng mẫu
     giaiThuongData = [NSMutableArray arrayWithObjects: [[GiaiThuong alloc] initWithInfo: @"Giải nhất" withPhanThuong: @"Thẻ nạp 100.000đ" andSoLuong: 100], [[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" andSoLuong: 50], [[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" andSoLuong: 50], [[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" andSoLuong: 50], [[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" andSoLuong: 50], [[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" andSoLuong: 50], nil];
+    
+    nguoiChoiTrungGiaiData = [NSMutableArray arrayWithObjects: [[NguoiChoiTrungGiai alloc] initWithGiaiThuong:[[GiaiThuong alloc] initWithInfo: @"Giải nhất" withPhanThuong: @"Thẻ nạp 100.000đ" withThoiGian: @"22/06/2022"] withTen: @"Nguyễn Văn A" andSDT:@"0932482122"], [[NguoiChoiTrungGiai alloc] initWithGiaiThuong:[[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" withThoiGian: @"23/06/2022"] withTen: @"Nguyễn Văn B" andSDT:@"0923828382"], nil];
 
 }
 
@@ -208,13 +217,14 @@
 
 - (IBAction)trungGiaiAction:(UIButton *)sender
 {
-    NSLog(@"trung giai");
+    TrungGiaiView *trungGiaiView = [[TrungGiaiView alloc] initWithFrame:CGRectMake((screenWidth - 400) / 2, screenHeight * 5 / 16 , 400, screenHeight * 3 / 8) withData:nguoiChoiTrungGiaiData];
+    [trungGiaiView show];
 }
 
 - (IBAction)coCauAction:(UIButton *)sender
 {
-    CoCauView *view = [[CoCauView alloc] initWithFrame: CGRectMake(screenWidth / 16, screenHeight * 5 / 16 , screenWidth * 7 / 8, screenHeight * 3 / 8) withData: giaiThuongData];
-    [view show];
+    CoCauView *coCauView = [[CoCauView alloc] initWithFrame: CGRectMake(screenWidth / 16, screenHeight * 5 / 16 , screenWidth * 7 / 8, screenHeight * 3 / 8) withData: giaiThuongData];
+    [coCauView show];
 }
 
 - (IBAction)tangLuotQuayAction:(UIButton *)sender
@@ -313,7 +323,14 @@
 
 #pragma mark spinAction
 
-// Functions for spinning, accelerating, slowing down until stops the wheel
+/*
+ Functions for spinning, accelerating, slowing down after a given duration (in seconds)
+ cách hoạt động:
+ - buildUpRotation: bắt đầu quay từ một tốc độ chậm và tăng dần
+ - updateUp: tăng tới 1 tốc độ và không tăng nữa
+ - turnOffRotation: chuyển tới một tốc độ thấp hơn theo tỉ lệ
+ - upDateDown: giảm dần tốc độ cho đến khi dừng hẳn, cuối hàm lấy kết quả bằng số rad lệch đi từ gốc
+*/
 - (void) buildUpRotation
 {
     CGAffineTransform t = CGAffineTransformRotate(circle.transform, -PI * 2);
@@ -332,6 +349,19 @@
     circle.transform = t;
     spinTime -= 0.00002;
     timer = [NSTimer scheduledTimerWithTimeInterval:spinTime target:self selector:@selector(updateUp) userInfo:nil repeats:NO];
+    count ++;
+
+    // 0.06730 -> thời gian từ lúc chậm lại cho đến khi dừng hẳn (test 1 - 5s)
+    // 4728 -> số vòng xoay được trong 1 giây => nhân số giây mong muốn
+    if (count >= 4728 * spinTimeInSecond)
+    {
+        if ((atan2f(circle.transform.b, circle.transform.a) + 0.06710 >= arrayOfSectors[rewardIndex].lowerBound - (PI * 2 / numberOfSectors)) && (atan2f(circle.transform.b, circle.transform.a) + 0.06710 <= arrayOfSectors[rewardIndex].higherBound - (PI * 2 / numberOfSectors)))
+        {
+            spinTime = (-spinTime) / 1835;
+            [timer invalidate];
+            [self turnOffRotation];
+        }
+    }
 }
 
 - (void) turnOffRotation
@@ -367,10 +397,10 @@
                 break;
             }
         }
-
         CGAffineTransform t = CGAffineTransformRotate(circle.transform, -newVal);
         circle.transform = t;
         circleRotationInRadian = atan2f(circle.transform.b, circle.transform.a);
+        NSLog(@"phần thưởng là: %@, số giây xoay là: %d \r _________________________", rewards[[self getTag: circleRotationInRadian]], count / 4730);
         [self configureWinningAlert: [rewards objectAtIndex: [self getTag: circleRotationInRadian]]];
         [self presentViewController: prizeAlert animated:YES completion:nil];
         lanQuay -= 1;
@@ -378,15 +408,12 @@
     }
 }
 
+
+#pragma mark ketQua
 - (void) getSpinResult
 {
-    NSLog(@"get spin result first");
-    circleRotationInRadian = vongQuay.circleRotationInRadian;
-    NSLog (@"rotated %f", circleRotationInRadian);
-    [self configureWinningAlert: [rewards objectAtIndex: [self getTag: circleRotationInRadian]]];
-    [self presentViewController: prizeAlert animated:YES completion:nil];
-    lanQuay -= 1;
-    self.lanQuayLabel.text = [NSString stringWithFormat: @"%d", lanQuay];
+    rewardIndex = arc4random_uniform(rewards.count);
+    NSLog(@"reward index is %d, phần thưởng là %@, with upper bound %f, and lower bound %f", rewardIndex, rewards[rewardIndex], arrayOfSectors[rewardIndex].higherBound, arrayOfSectors[rewardIndex].lowerBound);
 }
 
 - (int) getTag: (float) radian
@@ -404,24 +431,16 @@
 }
 
 - (IBAction)spinAction:(UIButton *)sender {
-    if ((!spinning) && (lanQuay > 0))
-    {
-        spinTime = 0.006;
-        [timer invalidate];
-        [self buildUpRotation];
-        spinning = true;
-    }
-    else if (spinning)
-    {
-        spinTime = 0.0001;
-        [timer invalidate];
-        [self turnOffRotation];
-//        [self getSpinResult];
-        spinning = false;
-    }
+    // note: wheel spins faster than real time 4730 times
+    spinTime = 0.006;
+    count = 0;
+    [timer invalidate];
+    [self getSpinResult];
+    [self buildUpRotation];
+
 }
 
-#pragma mark alerts
+#pragma mark alertControllers
 
 - (void) buildCoCauAlert
 {

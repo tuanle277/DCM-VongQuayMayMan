@@ -9,6 +9,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSString *soDienThoai;
 @property GiaiThuong *phanThuong;
 
+- (id) initWithGiaiThuong: (GiaiThuong *) giaiThuong withTen: (NSString *) ten andSDT: (NSString *) SDT;
+
 @end
 
 NS_ASSUME_NONNULL_END

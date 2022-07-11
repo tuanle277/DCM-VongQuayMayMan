@@ -18,12 +18,16 @@
 		A461364B286AA03F00BEF4BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A461364A286AA03F00BEF4BB /* main.m */; };
 		A4613660286AD6C500BEF4BB /* VongQuay.m in Sources */ = {isa = PBXBuildFile; fileRef = A461365F286AD6C500BEF4BB /* VongQuay.m */; };
 		A4613666286ADE3300BEF4BB /* PhanVongQuay.m in Sources */ = {isa = PBXBuildFile; fileRef = A4613665286ADE3300BEF4BB /* PhanVongQuay.m */; };
+		A46416D6287BFDB000480C92 /* TrungGiaiView.m in Sources */ = {isa = PBXBuildFile; fileRef = A46416D5287BFDB000480C92 /* TrungGiaiView.m */; };
+		A46416DB287C083200480C92 /* TrungGiaiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A46416D9287C083200480C92 /* TrungGiaiCell.m */; };
+		A46416DC287C083200480C92 /* TrungGiaiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A46416DA287C083200480C92 /* TrungGiaiCell.xib */; };
+		A46416E5287C18E300480C92 /* TrungGiaiHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A46416E3287C18E300480C92 /* TrungGiaiHeader.m */; };
+		A46416E6287C18E300480C92 /* TrungGiaiHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A46416E4287C18E300480C92 /* TrungGiaiHeader.xib */; };
 		A4666E7B286EC90A0081294E /* Segment.m in Sources */ = {isa = PBXBuildFile; fileRef = A4666E7A286EC90A0081294E /* Segment.m */; };
 		A4666E7F286EF2C50081294E /* GiaiThuongModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4666E7E286EF2C50081294E /* GiaiThuongModel.m */; };
 		A4666E82286EF3160081294E /* NguoiChoiTrungGiaiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4666E81286EF3160081294E /* NguoiChoiTrungGiaiModel.m */; };
 		A46D0E8928743490001170A8 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = A46D0E8828743490001170A8 /* Utility.m */; };
 		A4751C9C2875737E00398B2E /* CoCauView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4751C9B2875737E00398B2E /* CoCauView.m */; };
-		A4751C9E287573A100398B2E /* CoCauView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4751C9D287573A100398B2E /* CoCauView.xib */; };
 		A4751CA52875749400398B2E /* CoCauCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4751CA32875749400398B2E /* CoCauCell.m */; };
 		A4751CA62875749400398B2E /* CoCauCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4751CA42875749400398B2E /* CoCauCell.xib */; };
 		A488C8D3286D465600C9FC0B /* VePhanVongQuay.m in Sources */ = {isa = PBXBuildFile; fileRef = A488C8D2286D465600C9FC0B /* VePhanVongQuay.m */; };
@@ -52,6 +56,14 @@
 		A4613662286AD78600BEF4BB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A4613664286ADE3300BEF4BB /* PhanVongQuay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhanVongQuay.h; sourceTree = "<group>"; };
 		A4613665286ADE3300BEF4BB /* PhanVongQuay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhanVongQuay.m; sourceTree = "<group>"; };
+		A46416D4287BFDB000480C92 /* TrungGiaiView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrungGiaiView.h; sourceTree = "<group>"; };
+		A46416D5287BFDB000480C92 /* TrungGiaiView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrungGiaiView.m; sourceTree = "<group>"; };
+		A46416D8287C083200480C92 /* TrungGiaiCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrungGiaiCell.h; sourceTree = "<group>"; };
+		A46416D9287C083200480C92 /* TrungGiaiCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrungGiaiCell.m; sourceTree = "<group>"; };
+		A46416DA287C083200480C92 /* TrungGiaiCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrungGiaiCell.xib; sourceTree = "<group>"; };
+		A46416E2287C18E300480C92 /* TrungGiaiHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrungGiaiHeader.h; sourceTree = "<group>"; };
+		A46416E3287C18E300480C92 /* TrungGiaiHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrungGiaiHeader.m; sourceTree = "<group>"; };
+		A46416E4287C18E300480C92 /* TrungGiaiHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrungGiaiHeader.xib; sourceTree = "<group>"; };
 		A4666E79286EC90A0081294E /* Segment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Segment.h; sourceTree = "<group>"; };
 		A4666E7A286EC90A0081294E /* Segment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Segment.m; sourceTree = "<group>"; };
 		A4666E7D286EF2C50081294E /* GiaiThuongModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiaiThuongModel.h; sourceTree = "<group>"; };
@@ -63,7 +75,6 @@
 		A46D0E8828743490001170A8 /* Utility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 		A4751C9A2875737E00398B2E /* CoCauView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoCauView.h; sourceTree = "<group>"; };
 		A4751C9B2875737E00398B2E /* CoCauView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoCauView.m; sourceTree = "<group>"; };
-		A4751C9D287573A100398B2E /* CoCauView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoCauView.xib; sourceTree = "<group>"; };
 		A4751CA22875749400398B2E /* CoCauCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoCauCell.h; sourceTree = "<group>"; };
 		A4751CA32875749400398B2E /* CoCauCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoCauCell.m; sourceTree = "<group>"; };
 		A4751CA42875749400398B2E /* CoCauCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoCauCell.xib; sourceTree = "<group>"; };
@@ -117,7 +128,8 @@
 		A4613637286AA03D00BEF4BB /* DCM-VongQuay */ = {
 			isa = PBXGroup;
 			children = (
-				A4FDB7792876D7180050BA00 /* CoCau */,
+				A46416D7287C080400480C92 /* TrungGiaiTable */,
+				A4FDB7792876D7180050BA00 /* CoCauTable */,
 				A4751CA92875916600398B2E /* Views */,
 				A4666E7C286EF2AF0081294E /* Models */,
 				A4308044286C8F3E005CC431 /* Fortune-wheel.png */,
@@ -146,6 +158,21 @@
 				84B0C69182A23765756C350E /* Pods_DCM_VongQuay.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A46416D7287C080400480C92 /* TrungGiaiTable */ = {
+			isa = PBXGroup;
+			children = (
+				A46416D4287BFDB000480C92 /* TrungGiaiView.h */,
+				A46416D8287C083200480C92 /* TrungGiaiCell.h */,
+				A46416D9287C083200480C92 /* TrungGiaiCell.m */,
+				A46416DA287C083200480C92 /* TrungGiaiCell.xib */,
+				A46416D5287BFDB000480C92 /* TrungGiaiView.m */,
+				A46416E2287C18E300480C92 /* TrungGiaiHeader.h */,
+				A46416E3287C18E300480C92 /* TrungGiaiHeader.m */,
+				A46416E4287C18E300480C92 /* TrungGiaiHeader.xib */,
+			);
+			path = TrungGiaiTable;
 			sourceTree = "<group>";
 		};
 		A4666E7C286EF2AF0081294E /* Models */ = {
@@ -182,12 +209,11 @@
 			path = VongQuay;
 			sourceTree = "<group>";
 		};
-		A4FDB7792876D7180050BA00 /* CoCau */ = {
+		A4FDB7792876D7180050BA00 /* CoCauTable */ = {
 			isa = PBXGroup;
 			children = (
 				A4751C9A2875737E00398B2E /* CoCauView.h */,
 				A4751C9B2875737E00398B2E /* CoCauView.m */,
-				A4751C9D287573A100398B2E /* CoCauView.xib */,
 				A4FDB77428769A200050BA00 /* CoCauHeader.h */,
 				A4FDB77528769A200050BA00 /* CoCauHeader.m */,
 				A4FDB77628769A200050BA00 /* CoCauHeader.xib */,
@@ -195,7 +221,7 @@
 				A4751CA32875749400398B2E /* CoCauCell.m */,
 				A4751CA42875749400398B2E /* CoCauCell.xib */,
 			);
-			path = CoCau;
+			path = CoCauTable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,11 +285,12 @@
 			files = (
 				A4613648286AA03F00BEF4BB /* LaunchScreen.storyboard in Resources */,
 				A4308045286C8F3F005CC431 /* Fortune-wheel.png in Resources */,
+				A46416DC287C083200480C92 /* TrungGiaiCell.xib in Resources */,
 				A4613645286AA03F00BEF4BB /* Assets.xcassets in Resources */,
 				A4751CA62875749400398B2E /* CoCauCell.xib in Resources */,
 				A4613643286AA03D00BEF4BB /* Main.storyboard in Resources */,
 				A4FDB77828769A200050BA00 /* CoCauHeader.xib in Resources */,
-				A4751C9E287573A100398B2E /* CoCauView.xib in Resources */,
+				A46416E6287C18E300480C92 /* TrungGiaiHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +348,7 @@
 				A4751CA52875749400398B2E /* CoCauCell.m in Sources */,
 				A4613640286AA03D00BEF4BB /* ViewController.m in Sources */,
 				A4613666286ADE3300BEF4BB /* PhanVongQuay.m in Sources */,
+				A46416E5287C18E300480C92 /* TrungGiaiHeader.m in Sources */,
 				A4751C9C2875737E00398B2E /* CoCauView.m in Sources */,
 				A4666E7B286EC90A0081294E /* Segment.m in Sources */,
 				A461363A286AA03D00BEF4BB /* AppDelegate.m in Sources */,
@@ -329,7 +357,9 @@
 				A4FDB77728769A200050BA00 /* CoCauHeader.m in Sources */,
 				A461364B286AA03F00BEF4BB /* main.m in Sources */,
 				A461363D286AA03D00BEF4BB /* SceneDelegate.m in Sources */,
+				A46416DB287C083200480C92 /* TrungGiaiCell.m in Sources */,
 				A488C8D3286D465600C9FC0B /* VePhanVongQuay.m in Sources */,
+				A46416D6287BFDB000480C92 /* TrungGiaiView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
