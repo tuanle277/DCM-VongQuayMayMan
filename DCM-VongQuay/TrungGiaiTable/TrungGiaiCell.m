@@ -6,16 +6,16 @@
 
 @implementation TrungGiaiCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
+//- (void)awakeFromNib {
+//    [super awakeFromNib];
+//    // Initialization code
+//}
+//
+//- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+//    [super setSelected:selected animated:animated];
+//
+//    // Configure the view for the selected state
+//}
 
 - (void) setUp:(NguoiChoiTrungGiai *)nguoiChoi withIndexPath:(NSIndexPath *)indexPath
 {
@@ -32,6 +32,11 @@
     self.SDTBackground.layer.borderWidth = 1.0;
     self.thoiGianBackground.layer.borderWidth = 1.0;
     self.indexPath = indexPath;
+}
+
++ (NSString *) identifier
+{
+    return @"TrungGiaiCell";
 }
 
 @end

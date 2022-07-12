@@ -18,7 +18,6 @@
 - (id)initWithFrame:(CGRect)frame withData: (NSMutableArray *) data {
     self = [super initWithFrame: frame];
     datas = data;
-    NSLog(@"%@", datas);
     superview = [UIApplication sharedApplication].keyWindow;
     [self configureTableBackground: frame];
     [self configureTableView];
@@ -54,7 +53,7 @@
     tableView.showsVerticalScrollIndicator = YES;
     tableView.delegate = self;
     tableView.dataSource = self;
-    [tableView registerNib: [UINib nibWithNibName: @"TrungGiaiCell" bundle:nil] forCellReuseIdentifier:@"TrungGiaiCell"];
+    [tableView registerNib: [UINib nibWithNibName: TrungGiaiCell.identifier  bundle:nil] forCellReuseIdentifier: TrungGiaiCell.identifier];
     tableView.rowHeight = 100;
     tableView.estimatedRowHeight = 100;
     TrungGiaiHeader *header = [[TrungGiaiHeader alloc] initWithFrame: CGRectMake(backgroundView.bounds.origin.x, backgroundView.bounds.origin.y, backgroundView.bounds.size.width, 100)];
@@ -67,8 +66,16 @@
 - (void)show
 {
     self.frame = superview.bounds;
-    titleView.hidden = FALSE;
-    backgroundView.hidden = FALSE;
+    backgroundView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.001, 0.001);
+    [UIView animateWithDuration:0.7
+                     animations:^{
+                         self->backgroundView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
+                     }];
+    titleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.001, 0.001);
+    [UIView animateWithDuration:0.7
+                     animations:^{
+                         self->titleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
+                     }];
     tableView.allowsSelection = FALSE;
 }
 
@@ -82,7 +89,7 @@
 - (nonnull TrungGiaiCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     TrungGiaiCell * cell;
-    cell = [tableView dequeueReusableCellWithIdentifier: @"TrungGiaiCell" forIndexPath: indexPath];
+    cell = [tableView dequeueReusableCellWithIdentifier: TrungGiaiCell.identifier forIndexPath: indexPath];
     NguoiChoiTrungGiai *nguoiChoi = datas[indexPath.row];
     [cell setUp: nguoiChoi withIndexPath:indexPath];
     return cell;

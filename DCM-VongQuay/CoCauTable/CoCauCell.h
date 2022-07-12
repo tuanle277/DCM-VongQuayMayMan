@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIView *soLuongContainer;
 
 - (void) setUp: (GiaiThuong *) phanThuong withIndexPath: (NSIndexPath *) indexPath;
-
++ (NSString *) identifier;
 
 @end
 

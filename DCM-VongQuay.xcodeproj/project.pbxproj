@@ -23,6 +23,11 @@
 		A46416DC287C083200480C92 /* TrungGiaiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A46416DA287C083200480C92 /* TrungGiaiCell.xib */; };
 		A46416E5287C18E300480C92 /* TrungGiaiHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A46416E3287C18E300480C92 /* TrungGiaiHeader.m */; };
 		A46416E6287C18E300480C92 /* TrungGiaiHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A46416E4287C18E300480C92 /* TrungGiaiHeader.xib */; };
+		A4645C45287D150C00069FA6 /* ThuongCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4645C43287D150C00069FA6 /* ThuongCell.m */; };
+		A4645C46287D150C00069FA6 /* ThuongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4645C44287D150C00069FA6 /* ThuongCell.xib */; };
+		A4645C49287D16D300069FA6 /* ThuongView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4645C48287D16D300069FA6 /* ThuongView.m */; };
+		A4645C4C287D19FF00069FA6 /* ThuongHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A4645C4B287D19FF00069FA6 /* ThuongHeader.m */; };
+		A4645C4E287D1A3E00069FA6 /* ThuongHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4645C4D287D1A3E00069FA6 /* ThuongHeader.xib */; };
 		A4666E7B286EC90A0081294E /* Segment.m in Sources */ = {isa = PBXBuildFile; fileRef = A4666E7A286EC90A0081294E /* Segment.m */; };
 		A4666E7F286EF2C50081294E /* GiaiThuongModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4666E7E286EF2C50081294E /* GiaiThuongModel.m */; };
 		A4666E82286EF3160081294E /* NguoiChoiTrungGiaiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4666E81286EF3160081294E /* NguoiChoiTrungGiaiModel.m */; };
@@ -64,6 +69,14 @@
 		A46416E2287C18E300480C92 /* TrungGiaiHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrungGiaiHeader.h; sourceTree = "<group>"; };
 		A46416E3287C18E300480C92 /* TrungGiaiHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrungGiaiHeader.m; sourceTree = "<group>"; };
 		A46416E4287C18E300480C92 /* TrungGiaiHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrungGiaiHeader.xib; sourceTree = "<group>"; };
+		A4645C42287D150C00069FA6 /* ThuongCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThuongCell.h; sourceTree = "<group>"; };
+		A4645C43287D150C00069FA6 /* ThuongCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThuongCell.m; sourceTree = "<group>"; };
+		A4645C44287D150C00069FA6 /* ThuongCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThuongCell.xib; sourceTree = "<group>"; };
+		A4645C47287D16D300069FA6 /* ThuongView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThuongView.h; sourceTree = "<group>"; };
+		A4645C48287D16D300069FA6 /* ThuongView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThuongView.m; sourceTree = "<group>"; };
+		A4645C4A287D19FF00069FA6 /* ThuongHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThuongHeader.h; sourceTree = "<group>"; };
+		A4645C4B287D19FF00069FA6 /* ThuongHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThuongHeader.m; sourceTree = "<group>"; };
+		A4645C4D287D1A3E00069FA6 /* ThuongHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThuongHeader.xib; sourceTree = "<group>"; };
 		A4666E79286EC90A0081294E /* Segment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Segment.h; sourceTree = "<group>"; };
 		A4666E7A286EC90A0081294E /* Segment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Segment.m; sourceTree = "<group>"; };
 		A4666E7D286EF2C50081294E /* GiaiThuongModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiaiThuongModel.h; sourceTree = "<group>"; };
@@ -128,6 +141,7 @@
 		A4613637286AA03D00BEF4BB /* DCM-VongQuay */ = {
 			isa = PBXGroup;
 			children = (
+				A4645C41287D14FB00069FA6 /* ThuongTable */,
 				A46416D7287C080400480C92 /* TrungGiaiTable */,
 				A4FDB7792876D7180050BA00 /* CoCauTable */,
 				A4751CA92875916600398B2E /* Views */,
@@ -173,6 +187,21 @@
 				A46416E4287C18E300480C92 /* TrungGiaiHeader.xib */,
 			);
 			path = TrungGiaiTable;
+			sourceTree = "<group>";
+		};
+		A4645C41287D14FB00069FA6 /* ThuongTable */ = {
+			isa = PBXGroup;
+			children = (
+				A4645C42287D150C00069FA6 /* ThuongCell.h */,
+				A4645C47287D16D300069FA6 /* ThuongView.h */,
+				A4645C48287D16D300069FA6 /* ThuongView.m */,
+				A4645C43287D150C00069FA6 /* ThuongCell.m */,
+				A4645C4A287D19FF00069FA6 /* ThuongHeader.h */,
+				A4645C4D287D1A3E00069FA6 /* ThuongHeader.xib */,
+				A4645C4B287D19FF00069FA6 /* ThuongHeader.m */,
+				A4645C44287D150C00069FA6 /* ThuongCell.xib */,
+			);
+			path = ThuongTable;
 			sourceTree = "<group>";
 		};
 		A4666E7C286EF2AF0081294E /* Models */ = {
@@ -284,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4613648286AA03F00BEF4BB /* LaunchScreen.storyboard in Resources */,
+				A4645C46287D150C00069FA6 /* ThuongCell.xib in Resources */,
 				A4308045286C8F3F005CC431 /* Fortune-wheel.png in Resources */,
 				A46416DC287C083200480C92 /* TrungGiaiCell.xib in Resources */,
 				A4613645286AA03F00BEF4BB /* Assets.xcassets in Resources */,
@@ -291,6 +321,7 @@
 				A4613643286AA03D00BEF4BB /* Main.storyboard in Resources */,
 				A4FDB77828769A200050BA00 /* CoCauHeader.xib in Resources */,
 				A46416E6287C18E300480C92 /* TrungGiaiHeader.xib in Resources */,
+				A4645C4E287D1A3E00069FA6 /* ThuongHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,12 +380,15 @@
 				A4613640286AA03D00BEF4BB /* ViewController.m in Sources */,
 				A4613666286ADE3300BEF4BB /* PhanVongQuay.m in Sources */,
 				A46416E5287C18E300480C92 /* TrungGiaiHeader.m in Sources */,
+				A4645C49287D16D300069FA6 /* ThuongView.m in Sources */,
+				A4645C4C287D19FF00069FA6 /* ThuongHeader.m in Sources */,
 				A4751C9C2875737E00398B2E /* CoCauView.m in Sources */,
 				A4666E7B286EC90A0081294E /* Segment.m in Sources */,
 				A461363A286AA03D00BEF4BB /* AppDelegate.m in Sources */,
 				A4666E82286EF3160081294E /* NguoiChoiTrungGiaiModel.m in Sources */,
 				A46D0E8928743490001170A8 /* Utility.m in Sources */,
 				A4FDB77728769A200050BA00 /* CoCauHeader.m in Sources */,
+				A4645C45287D150C00069FA6 /* ThuongCell.m in Sources */,
 				A461364B286AA03F00BEF4BB /* main.m in Sources */,
 				A461363D286AA03D00BEF4BB /* SceneDelegate.m in Sources */,
 				A46416DB287C083200480C92 /* TrungGiaiCell.m in Sources */,

@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *thoiGianLabel;
 
 - (void) setUp: (NguoiChoiTrungGiai *) nguoiChoi withIndexPath: (NSIndexPath *) indexPath;
++ (NSString *) identifier;
 @end
 
 NS_ASSUME_NONNULL_END

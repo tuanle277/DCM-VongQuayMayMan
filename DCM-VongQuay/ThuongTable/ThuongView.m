@@ -1,8 +1,8 @@
-#import "CoCauView.h"
-#import "CoCauHeader.h"
-#import "CoCauCell.h"
+#import "ThuongView.h"
+#import "ThuongCell.h"
+#import "ThuongHeader.h"
 
-@interface CoCauView()
+@interface ThuongView ()
 {
     UIView *backgroundView;
     UIView *superview;
@@ -13,7 +13,7 @@
 
 @end
 
-@implementation CoCauView
+@implementation ThuongView
 
 - (id)initWithFrame:(CGRect)frame withData: (NSMutableArray *) data {
     self = [super initWithFrame: frame];
@@ -34,7 +34,7 @@
     UILabel *title = [[UILabel alloc] initWithFrame: CGRectMake(titleView.bounds.origin.x, titleView.frame.size.height / 3, titleView.frame.size.width, titleView.frame.size.height / 3)];
     title.textAlignment = NSTextAlignmentCenter;
     title.textColor = UIColor.blackColor;
-    title.text = @"Giải thưởng";
+    title.text = @"Phần thưởng của tôi";
     [titleView addSubview: title];
 }
 
@@ -53,10 +53,10 @@
     tableView.showsVerticalScrollIndicator = YES;
     tableView.delegate = self;
     tableView.dataSource = self;
-    [tableView registerNib: [UINib nibWithNibName: CoCauCell.identifier bundle:nil] forCellReuseIdentifier: CoCauCell.identifier];
+    [tableView registerNib: [UINib nibWithNibName: ThuongCell.identifier bundle:nil] forCellReuseIdentifier: ThuongCell.identifier];
     tableView.rowHeight = 85;
     tableView.estimatedRowHeight = 85;
-    CoCauHeader *header = [[CoCauHeader alloc] initWithFrame: CGRectMake(backgroundView.bounds.origin.x, backgroundView.bounds.origin.y, backgroundView.bounds.size.width, 100)];
+    ThuongHeader *header = [[ThuongHeader alloc] initWithFrame: CGRectMake(backgroundView.bounds.origin.x, backgroundView.bounds.origin.y, backgroundView.bounds.size.width, 100)];
     [superview addSubview: self];
     [superview addSubview: backgroundView];
     [backgroundView addSubview: header];
@@ -86,10 +86,10 @@
     titleView.hidden = TRUE;
 }
 
-- (nonnull CoCauCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+- (nonnull ThuongCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    CoCauCell * cell;
-    cell = [tableView dequeueReusableCellWithIdentifier: CoCauCell.identifier forIndexPath: indexPath];
+    ThuongCell * cell;
+    cell = [tableView dequeueReusableCellWithIdentifier: ThuongCell.identifier  forIndexPath: indexPath];
     GiaiThuong *giaiThuong = datas[indexPath.row];
     [cell setUp: giaiThuong withIndexPath:indexPath];
     return cell;
@@ -108,8 +108,5 @@
     // Drawing code
 }
 */
-
-
-
 
 @end

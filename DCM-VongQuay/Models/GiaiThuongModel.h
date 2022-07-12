@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (id) initWithInfo: (NSString *) newCoCau withPhanThuong: (NSString *) newPhanThuong withThoiGian: (NSString *) newTime;
 
+- (id) initWithPhanThuong: (NSString *) newPhanThuong withThoiGian: (NSString *) newTime;
+
 @end
 
 NS_ASSUME_NONNULL_END

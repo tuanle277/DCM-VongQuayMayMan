@@ -26,4 +26,15 @@
     return self;
 }
 
+- (id) initWithPhanThuong: (NSString *) newPhanThuong withThoiGian: (NSString *) newTime
+{
+    self = [super init];
+    if (self)
+    {
+        self.phanThuong = newPhanThuong;
+        self.thoiGianTrungThuong = newTime;
+    }
+    return self;
+}
+
 @end

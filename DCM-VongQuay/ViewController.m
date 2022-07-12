@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #import "NguoiChoiTrungGiaiModel.h"
 #import "TrungGiaiView.h"
+#import "ThuongView.h"
 
 
 @interface VongQuayViewController ()
@@ -27,8 +28,9 @@
     UILabel *im;
     NSMutableArray<PhanVongQuay *> *arrayOfSectors;
     NSMutableArray<NSString *> *rewards;
-    NSMutableArray<GiaiThuong *> *giaiThuongData;
+    NSMutableArray<GiaiThuong *> *giaiThuongChungData;
     NSMutableArray<NguoiChoiTrungGiai *> *nguoiChoiTrungGiaiData;
+    NSMutableArray<GiaiThuong *> *giaiThuongToiData;
     CGFloat sectorLength;
     UIAlertController *prizeAlert;
     UIAlertController *voucherDecisionAlert;
@@ -72,9 +74,13 @@
     colors = [NSMutableArray arrayWithObjects: UIColor.blackColor, UIColor.blueColor, UIColor.yellowColor, UIColor.whiteColor, UIColor.greenColor, UIColor.grayColor, UIColor.orangeColor, UIColor.whiteColor, nil];
     
     // danh sách giải thưởng mẫu
-    giaiThuongData = [NSMutableArray arrayWithObjects: [[GiaiThuong alloc] initWithInfo: @"Giải nhất" withPhanThuong: @"Thẻ nạp 100.000đ" andSoLuong: 100], [[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" andSoLuong: 50], [[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" andSoLuong: 50], [[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" andSoLuong: 50], [[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" andSoLuong: 50], [[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" andSoLuong: 50], nil];
+    giaiThuongChungData = [NSMutableArray arrayWithObjects: [[GiaiThuong alloc] initWithInfo: @"Giải nhất" withPhanThuong: @"Thẻ nạp 100.000đ" andSoLuong: 100], [[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" andSoLuong: 50], [[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" andSoLuong: 50], [[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" andSoLuong: 50], [[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" andSoLuong: 50], [[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" andSoLuong: 50], nil];
     
+    // danh sách người chơi trúng giải mẫu
     nguoiChoiTrungGiaiData = [NSMutableArray arrayWithObjects: [[NguoiChoiTrungGiai alloc] initWithGiaiThuong:[[GiaiThuong alloc] initWithInfo: @"Giải nhất" withPhanThuong: @"Thẻ nạp 100.000đ" withThoiGian: @"22/06/2022"] withTen: @"Nguyễn Văn A" andSDT:@"0932482122"], [[NguoiChoiTrungGiai alloc] initWithGiaiThuong:[[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" withThoiGian: @"23/06/2022"] withTen: @"Nguyễn Văn B" andSDT:@"0923828382"], nil];
+    
+    // danh sách phần thưởng của tôi mẫu
+    giaiThuongToiData = [NSMutableArray arrayWithObjects: [[GiaiThuong alloc] initWithPhanThuong:@"Thẻ nạp 20.000đ" withThoiGian:@"22/06/2022"], [[GiaiThuong alloc] initWithPhanThuong:@"Thẻ nạp 50.000đ" withThoiGian:@"24/06/2022"], [[GiaiThuong alloc] initWithPhanThuong:@"Thẻ nạp 100.000đ" withThoiGian:@"12/04/2012"], [[GiaiThuong alloc] initWithPhanThuong:@"Thẻ nạp 200.000đ" withThoiGian:@"15/04/2016"], [[GiaiThuong alloc] initWithPhanThuong:@"Thẻ nạp 100.000đ" withThoiGian:@"10/02/2021"], nil];
 
 }
 
@@ -207,12 +213,12 @@
     
 }
 
-
 #pragma mark ConfigureButtons
 
 - (IBAction)thuongAction:(UIButton *)sender
 {
-    NSLog(@"thuong");
+    ThuongView *thuongView = [[ThuongView alloc] initWithFrame: CGRectMake(screenWidth / 16, screenHeight * 5 / 16 , screenWidth * 7 / 8, screenHeight * 3 / 8) withData: giaiThuongToiData];
+    [thuongView show];
 }
 
 - (IBAction)trungGiaiAction:(UIButton *)sender
@@ -223,7 +229,7 @@
 
 - (IBAction)coCauAction:(UIButton *)sender
 {
-    CoCauView *coCauView = [[CoCauView alloc] initWithFrame: CGRectMake(screenWidth / 16, screenHeight * 5 / 16 , screenWidth * 7 / 8, screenHeight * 3 / 8) withData: giaiThuongData];
+    CoCauView *coCauView = [[CoCauView alloc] initWithFrame: CGRectMake(screenWidth / 16, screenHeight * 5 / 16 , screenWidth * 7 / 8, screenHeight * 3 / 8) withData: giaiThuongChungData];
     [coCauView show];
 }
 
@@ -238,11 +244,6 @@
 // Building the wheel (needs partitioning)**
 - (void) buildCircle
 {
-    
-//    UIImageView *wheelBG = [[UIImageView alloc] initWithFrame: CGRectMake((self.view.frame.size.width - diameter - 120) / 2, 340, radius * 2 + 120, radius * 2 + 120)];
-//    wheelBG.image = [UIImage imageNamed: @"Fortune-wheel.png"];
-//    [self.view addSubview: wheelBG];
-    
     // Tạo nền của vòng quay
     circle = [[UIView alloc] initWithFrame: CGRectMake((screenWidth - diameter) / 2, screenHeight * 2/5, radius * 2, radius * 2)];
     circle.layer.cornerRadius = radius;
@@ -355,8 +356,10 @@
     // 4728 -> số vòng xoay được trong 1 giây => nhân số giây mong muốn
     if (count >= 4728 * spinTimeInSecond)
     {
+        [self getSpinResult];
         if ((atan2f(circle.transform.b, circle.transform.a) + 0.06710 >= arrayOfSectors[rewardIndex].lowerBound - (PI * 2 / numberOfSectors)) && (atan2f(circle.transform.b, circle.transform.a) + 0.06710 <= arrayOfSectors[rewardIndex].higherBound - (PI * 2 / numberOfSectors)))
         {
+            // tính tốc độ chậm lại thành của vòng quay
             spinTime = (-spinTime) / 1835;
             [timer invalidate];
             [self turnOffRotation];
@@ -400,7 +403,7 @@
         CGAffineTransform t = CGAffineTransformRotate(circle.transform, -newVal);
         circle.transform = t;
         circleRotationInRadian = atan2f(circle.transform.b, circle.transform.a);
-        NSLog(@"phần thưởng là: %@, số giây xoay là: %d \r _________________________", rewards[[self getTag: circleRotationInRadian]], count / 4730);
+        NSLog(@"phần thưởng là: %@, số giây xoay là: %d \r ______________________________________", rewards[[self getTag: circleRotationInRadian]], count / 4730);
         [self configureWinningAlert: [rewards objectAtIndex: [self getTag: circleRotationInRadian]]];
         [self presentViewController: prizeAlert animated:YES completion:nil];
         lanQuay -= 1;
@@ -412,7 +415,7 @@
 #pragma mark ketQua
 - (void) getSpinResult
 {
-    rewardIndex = arc4random_uniform(rewards.count);
+    rewardIndex = (int) arc4random_uniform(rewards.count);
     NSLog(@"reward index is %d, phần thưởng là %@, with upper bound %f, and lower bound %f", rewardIndex, rewards[rewardIndex], arrayOfSectors[rewardIndex].higherBound, arrayOfSectors[rewardIndex].lowerBound);
 }
 
@@ -432,12 +435,14 @@
 
 - (IBAction)spinAction:(UIButton *)sender {
     // note: wheel spins faster than real time 4730 times
-    spinTime = 0.006;
-    count = 0;
-    [timer invalidate];
-    [self getSpinResult];
-    [self buildUpRotation];
-
+    if (lanQuay > 0)
+    {
+        spinTime = 0.006;
+        count = 0;
+        [timer invalidate];
+        [self getSpinResult];
+        [self buildUpRotation];
+    }
 }
 
 #pragma mark alertControllers
@@ -445,14 +450,10 @@
 - (void) buildCoCauAlert
 {
     coCauAlert = [UIAlertController alertControllerWithTitle: @"Giải thưởng" message:@"" preferredStyle: UIAlertControllerStyleAlert];
-    
+        
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle: @"Cancel" style:UIAlertActionStyleCancel handler: nil];
     
     [coCauAlert addAction: cancelAction];
-
-    
-//    tableView.delegate = self;
-//    tableView.dataSource = self;
 }
 
 - (void) configureWinningAlert: (NSString *) prize
@@ -469,6 +470,8 @@
 {
     voucherAlert = [UIAlertController alertControllerWithTitle:@"Voucher" message:@"" preferredStyle:UIAlertControllerStyleAlert];
     
+    UIAlertAction *actionCancel = [UIAlertAction actionWithTitle: @"Cancel" style:UIAlertActionStyleCancel handler: nil];
+    
     UIAlertAction *actionDongY = [UIAlertAction actionWithTitle:@"Đồng ý" style: UIAlertActionStyleDefault handler: ^(UIAlertAction *_Nonnull action)
                                   {
         if (![[self->voucherAlert textFields][0].text isEqualToString: @""])
@@ -483,6 +486,7 @@
         nameTextField.placeholder = @"Vui lòng nhập mã trò chơi";
     }];
     
+    [voucherAlert addAction: actionCancel];
     [voucherAlert addAction: actionDongY];
 }
 

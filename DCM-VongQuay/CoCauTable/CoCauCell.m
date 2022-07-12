@@ -29,4 +29,9 @@
     self.soLuongContainer.layer.borderWidth = 1.0;
 }
 
++ (NSString *) identifier
+{
+    return @"CoCauCell";
+}
+
 @end
