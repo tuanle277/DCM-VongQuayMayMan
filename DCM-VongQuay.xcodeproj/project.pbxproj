@@ -120,12 +120,22 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		A4156F6A287D372F003F62C3 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				A4666E86286EFE5E0081294E /* Note.md */,
+				A46D0E8728743490001170A8 /* Utility.h */,
+				A46D0E8828743490001170A8 /* Utility.m */,
+				A4308044286C8F3E005CC431 /* Fortune-wheel.png */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		A461362C286AA03D00BEF4BB = {
 			isa = PBXGroup;
 			children = (
 				A4613637286AA03D00BEF4BB /* DCM-VongQuay */,
 				A4613636286AA03D00BEF4BB /* Products */,
-				A4613661286AD78500BEF4BB /* Frameworks */,
 				74BACC272131C0876060869D /* Pods */,
 			);
 			sourceTree = "<group>";
@@ -141,17 +151,16 @@
 		A4613637286AA03D00BEF4BB /* DCM-VongQuay */ = {
 			isa = PBXGroup;
 			children = (
+				A4613661286AD78500BEF4BB /* Frameworks */,
+				A4156F6A287D372F003F62C3 /* Resource */,
 				A4645C41287D14FB00069FA6 /* ThuongTable */,
 				A46416D7287C080400480C92 /* TrungGiaiTable */,
 				A4FDB7792876D7180050BA00 /* CoCauTable */,
 				A4751CA92875916600398B2E /* Views */,
 				A4666E7C286EF2AF0081294E /* Models */,
-				A4308044286C8F3E005CC431 /* Fortune-wheel.png */,
 				A4613638286AA03D00BEF4BB /* AppDelegate.h */,
 				A4613639286AA03D00BEF4BB /* AppDelegate.m */,
 				A461363B286AA03D00BEF4BB /* SceneDelegate.h */,
-				A46D0E8728743490001170A8 /* Utility.h */,
-				A46D0E8828743490001170A8 /* Utility.m */,
 				A461363C286AA03D00BEF4BB /* SceneDelegate.m */,
 				A461363E286AA03D00BEF4BB /* ViewController.h */,
 				A461363F286AA03D00BEF4BB /* ViewController.m */,
@@ -160,7 +169,6 @@
 				A4613641286AA03D00BEF4BB /* Main.storyboard */,
 				A4613649286AA03F00BEF4BB /* Info.plist */,
 				A461364A286AA03F00BEF4BB /* main.m */,
-				A4666E86286EFE5E0081294E /* Note.md */,
 			);
 			path = "DCM-VongQuay";
 			sourceTree = "<group>";
@@ -172,6 +180,7 @@
 				84B0C69182A23765756C350E /* Pods_DCM_VongQuay.framework */,
 			);
 			name = Frameworks;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		A46416D7287C080400480C92 /* TrungGiaiTable */ = {
