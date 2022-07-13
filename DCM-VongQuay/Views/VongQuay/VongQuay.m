@@ -9,7 +9,7 @@
 
 @implementation VongQuay
 
-#define PI 3.141
+#define PI 3.14
 
 @synthesize diameter = _diameter;
 @synthesize circle = _circle;
@@ -30,12 +30,23 @@
     self.diameter = diameter;
     self.radius = diameter / 2;
     self.numberOfSectors = sectionsNumber;
+    [self configureVariables];
+    [self buildCircle];
     return self;
+}
+
+- (void) configureVariables
+{
+    // danh sách giải thưởng
+    self.rewards = [NSMutableArray arrayWithObjects:@"Thẻ nạp 1", @"Thẻ nạp 2", @"Thẻ nạp 3", @"Thẻ nạp 4", @"Thẻ nạp 5", @"Thẻ nạp 6", @"Thẻ nạp 7", @"Thẻ nạp 8", nil];
+    
+    // danh sách màu từng phần vòng quay
+    self.colors = [NSMutableArray arrayWithObjects: UIColor.blackColor, UIColor.blueColor, UIColor.yellowColor, UIColor.whiteColor, UIColor.greenColor, UIColor.grayColor, UIColor.orangeColor, UIColor.whiteColor, nil];
 }
 
 - (void) buildCircle
 {
-    self.circle = [[UIView alloc] initWithFrame: CGRectMake((self.frame.size.width - self.diameter) / 2, 400, self.radius * 2, self.radius * 2)];
+    self.circle = [[UIView alloc] initWithFrame:  CGRectMake((self.frame.size.width - self.diameter) / 2, 400, self.radius * 2, self.radius * 2)];
     self.circle.layer.cornerRadius = self.radius;
     self.circle.backgroundColor = UIColor.whiteColor;
     
@@ -54,12 +65,7 @@
     self.indicator = [[UIView alloc] initWithFrame:CGRectMake(10, 575, (self.frame.size.width - self.diameter) / 2 - 10, 1)];
     self.indicator.backgroundColor = UIColor.whiteColor;
     
-//    [self.view addSubview: circle];
     [self.circle addSubview: sectors];
-//    [self.view addSubview: indicator];
-//    UIImageView *wheelBG = [[UIImageView alloc] initWithFrame: circle.frame];
-//    wheelBG.image = [UIImage imageNamed: @"Fortune-wheel.png"];
-//    [self.view addSubview: wheelBG];
     [self buildItems];
     [self buildSectors];
 }
@@ -71,7 +77,14 @@
         UILabel *word = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, self.radius, 70)];
         word.text = self.rewards[i];
         word.font = [UIFont fontWithName: @"Times new roman" size: 30];
-        word.textColor = UIColor.whiteColor;
+        if (i <= 1)
+        {
+            word.textColor = UIColor.whiteColor;
+        }
+        else
+        {
+            word.textColor = UIColor.blackColor;
+        }
         word.layer.anchorPoint = CGPointMake(1.0f, 0.5f);
         word.layer.position = CGPointMake(self.circle.bounds.size.width/2.0, self.circle.bounds.size.height/2.0);
         word.transform = CGAffineTransformMakeRotation(PI * 2 / self.numberOfSectors * i);

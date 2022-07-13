@@ -55,6 +55,9 @@
 
 #define PI 3.14
 
+/*
+ Function để định giá trị ban đầu của biến
+ */
 - (void) configureVariables
 {
     screenWidth = self.view.frame.size.width;
@@ -86,21 +89,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setAutoresizesSubviews: TRUE];
     [self configureVariables];
     [self configureSpinButton];
     [self configureTitles];
     [self configureButtons];
     [self buildCircle];
-    NSLog(@"Screen's width is %f, screen's height is %f", screenWidth, screenHeight);
-    
-    
-//    vongQuay = [[VongQuay alloc] initWithFrame:self.view.frame
-//                                 withSections:numberOfSectors withDiameter:diameter];
+//    VongQuay *vongQuay = [[VongQuay alloc] initWithFrame: self.view.frame  withSections: numberOfSectors withDiameter: diameter];
 //    vongQuay.colors = colors;
 //    vongQuay.rewards = rewards;
 //    [vongQuay buildCircle];
-//    arrayOfSectors = vongQuay.arrayOfSectors;
 //    [self.view addSubview: vongQuay.circle];
 //    [self.view addSubview: vongQuay.indicator];
 }
@@ -215,6 +212,12 @@
 
 #pragma mark ConfigureButtons
 
+/*
+ Functions của các button hiện bảng thông tin (cơ cấu giải thưởng, danh sách ngừời chơi trúng giải, danh sách giải người dùng đã trúng), và hiện alert để người chơi nhập vouchẻ
+ - Mỗi bảng thông tin là object kế thừa UIView chứa 1 header kế thừa UIView và 1 UITableView, dùng animation của UIView để hiện bảng
+ - Mỗi bảng được định nghĩa bằng các file trong các folder tên (tên bảng) + "Table"
+ */
+
 - (IBAction)thuongAction:(UIButton *)sender
 {
     ThuongView *thuongView = [[ThuongView alloc] initWithFrame: CGRectMake(screenWidth / 16, screenHeight * 5 / 16 , screenWidth * 7 / 8, screenHeight * 3 / 8) withData: giaiThuongToiData];
@@ -240,8 +243,14 @@
 }
 
 #pragma mark ConfigureLuckyWheel
-
 // Building the wheel (needs partitioning)**
+
+/*
+ Functions dùng để build UI vòng quay:
+ - buildCircle: build background hình tròn kế thừa UIView, cùng lúc chia hình tròn thành từng quạt bằng nhau với các màu theo thứ tự trong biến mảng local "colors".
+ - buildItems: build các thành phần giải thưởng trên từng quạt (hiện tại là UILabel với text theo thứ tự trong biến mảng local "rewards", các giải thưởng này dynamic, chỉ việc tạo class object mong muốn rồi lấy text trả về sau khi quay và tên người chơi để tạo object đó.
+ - buildSectors: build layer dưới mỗi quạt, là một NSObject để lưu khoảng góc quay (theo radian) của từng quạt, vị trí bắt đầu là 0 rad, mỗi khoảng được tính dựa trên số quạt (2 * PI / số quạt) -> function này dùng để check giải thưởng quay được là giải gì. Giải thưởng sẽ được tính theo độ lệch của vòng quay so với vị trí ban đầu (theo rad), check coi độ lệch đó nằm trong khoảng của quạt nào và trả item quạt đó chứa.
+ */
 - (void) buildCircle
 {
     // Tạo nền của vòng quay
@@ -261,9 +270,9 @@
         [sectors.arrayOfSegments addObject: [[Segment alloc] initWithColor: colors[i] andValue:40]];
     }
 
-    indicator = [[UIView alloc] initWithFrame:CGRectMake(10, screenHeight * 2 / 5 + radius, (self.view.frame.size.width - diameter) / 2 - 10, 1)];
+    indicator = [[UIView alloc] initWithFrame:CGRectMake(10, screenHeight * 2 / 5 + radius, (self.view.frame.size.width - diameter) / 2 - 10, 2)];
     indicator.backgroundColor = UIColor.whiteColor;
-  
+
     [self.view addSubview: circle];
     [circle addSubview: sectors];
     [self.view addSubview: indicator];
@@ -274,13 +283,14 @@
 
 - (void) buildItems
 {
-    // make items (UILabel)
+    // make items (UILabel) (items có thể thay đổi thành object nào tùy thích)
     for (int i = 0; i < numberOfSectors; i++) {
         UILabel *word = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, radius, 70)];
         word.text = rewards[i];
         word.adjustsFontSizeToFitWidth = TRUE;
-        word.numberOfLines = 2;
-        word.font = [UIFont fontWithName: @"Times new roman" size:26];
+        word.lineBreakMode = NSLineBreakByWordWrapping;
+        word.numberOfLines = 3;
+        word.font = [UIFont fontWithName: @"Times new roman" size: radius / 8];
         if (i <= 1)
         {
             word.textColor = UIColor.whiteColor;
@@ -317,7 +327,7 @@
             sector.lowerBound = fabsf(sector.higherBound);
         }
         mid -= sectorLength;
-        // Add sector to array
+        // arrayOfSectors chứa các object sector, tức layer dưới vòng quay chứa khoảng radian của mỗi vòng quay
         [arrayOfSectors addObject:sector];
     }
 }
@@ -354,7 +364,7 @@
 
     // 0.06730 -> thời gian từ lúc chậm lại cho đến khi dừng hẳn (test 1 - 5s)
     // 4728 -> số vòng xoay được trong 1 giây => nhân số giây mong muốn
-    if (count >= 4728 * spinTimeInSecond)
+    if (count >= 4730 * spinTimeInSecond)
     {
         [self getSpinResult];
         if ((atan2f(circle.transform.b, circle.transform.a) + 0.06710 >= arrayOfSectors[rewardIndex].lowerBound - (PI * 2 / numberOfSectors)) && (atan2f(circle.transform.b, circle.transform.a) + 0.06710 <= arrayOfSectors[rewardIndex].higherBound - (PI * 2 / numberOfSectors)))
@@ -381,6 +391,7 @@
 
 - (void) updateDown
 {
+    // Quay chậm cho đến lúc dừng hẳn
     [timer invalidate];
     CGAffineTransform t = CGAffineTransformRotate(circle.transform, -PI * 2);
     circle.transform = t;
@@ -400,6 +411,7 @@
                 break;
             }
         }
+        // Vòng ngược lại hoặc tiến tới để dừng ở giữa phần vòng quay
         CGAffineTransform t = CGAffineTransformRotate(circle.transform, -newVal);
         circle.transform = t;
         circleRotationInRadian = atan2f(circle.transform.b, circle.transform.a);
@@ -447,14 +459,10 @@
 
 #pragma mark alertControllers
 
-- (void) buildCoCauAlert
-{
-    coCauAlert = [UIAlertController alertControllerWithTitle: @"Giải thưởng" message:@"" preferredStyle: UIAlertControllerStyleAlert];
-        
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle: @"Cancel" style:UIAlertActionStyleCancel handler: nil];
-    
-    [coCauAlert addAction: cancelAction];
-}
+/*
+ Functions để build AlertController để người chơi nhập mã lượt quay và thông báo trúng giải:
+ - voucher: dùng biến local "lanQuay" để lưu trữ số lần quay hiện có, nếu nhập đúng voucher thì biến tăng thêm, chỉ quay khi biến > 0. UI cũng là định dạng của biến, xong khi quay thì biến -= 1 và redraw UI.
+ */
 
 - (void) configureWinningAlert: (NSString *) prize
 {
@@ -469,9 +477,7 @@
 - (void) configureVoucherAlert
 {
     voucherAlert = [UIAlertController alertControllerWithTitle:@"Voucher" message:@"" preferredStyle:UIAlertControllerStyleAlert];
-    
     UIAlertAction *actionCancel = [UIAlertAction actionWithTitle: @"Cancel" style:UIAlertActionStyleCancel handler: nil];
-    
     UIAlertAction *actionDongY = [UIAlertAction actionWithTitle:@"Đồng ý" style: UIAlertActionStyleDefault handler: ^(UIAlertAction *_Nonnull action)
                                   {
         if (![[self->voucherAlert textFields][0].text isEqualToString: @""])

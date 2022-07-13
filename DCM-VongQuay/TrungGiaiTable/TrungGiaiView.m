@@ -28,7 +28,7 @@
 
 - (void)configureTableTitle
 {
-    titleView = [[UIView alloc] initWithFrame: CGRectMake(backgroundView.frame.origin.x + backgroundView.frame.size.width / 4, backgroundView.frame.origin.y - 50, backgroundView.frame.size.width / 2, 50)];
+    titleView = [[UIView alloc] initWithFrame: CGRectMake(backgroundView.frame.origin.x + backgroundView.frame.size.width / 4, backgroundView.frame.origin.y - backgroundView.frame.size.height / 6, backgroundView.frame.size.width / 2, backgroundView.frame.size.height / 6)];
     titleView.backgroundColor = UIColor.whiteColor;
     titleView.layer.borderWidth = 2.0;
     UILabel *title = [[UILabel alloc] initWithFrame: CGRectMake(titleView.bounds.origin.x + titleView.frame.size.width / 20, titleView.frame.size.height / 3, titleView.frame.size.width * 9/10, titleView.frame.size.height / 3)];
@@ -49,14 +49,14 @@
 - (void)configureTableView
 {
     self.backgroundColor = [UIColor colorWithRed: 0.8 green:0.0 blue:0.0 alpha:0.3];
-    tableView = [[UITableView alloc] initWithFrame: CGRectMake(backgroundView.bounds.origin.x, backgroundView.bounds.origin.y + 100, backgroundView.bounds.size.width, backgroundView.bounds.size.height - 100)];
+    tableView = [[UITableView alloc] initWithFrame: CGRectMake(backgroundView.bounds.origin.x, backgroundView.bounds.origin.y + backgroundView.frame.size.height / 4, backgroundView.bounds.size.width, backgroundView.bounds.size.height * 3 / 4)];
     tableView.showsVerticalScrollIndicator = YES;
     tableView.delegate = self;
     tableView.dataSource = self;
     [tableView registerNib: [UINib nibWithNibName: TrungGiaiCell.identifier  bundle:nil] forCellReuseIdentifier: TrungGiaiCell.identifier];
     tableView.rowHeight = 100;
     tableView.estimatedRowHeight = 100;
-    TrungGiaiHeader *header = [[TrungGiaiHeader alloc] initWithFrame: CGRectMake(backgroundView.bounds.origin.x, backgroundView.bounds.origin.y, backgroundView.bounds.size.width, 100)];
+    TrungGiaiHeader *header = [[TrungGiaiHeader alloc] initWithFrame: CGRectMake(backgroundView.bounds.origin.x, backgroundView.bounds.origin.y, backgroundView.bounds.size.width, backgroundView.frame.size.height / 4)];
     [superview addSubview: self];
     [superview addSubview: backgroundView];
     [backgroundView addSubview: header];
