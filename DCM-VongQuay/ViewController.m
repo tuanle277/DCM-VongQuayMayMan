@@ -249,7 +249,7 @@
  Functions dùng để build UI vòng quay:
  - buildCircle: build background hình tròn kế thừa UIView, cùng lúc chia hình tròn thành từng quạt bằng nhau với các màu theo thứ tự trong biến mảng local "colors".
  - buildItems: build các thành phần giải thưởng trên từng quạt (hiện tại là UILabel với text theo thứ tự trong biến mảng local "rewards", các giải thưởng này dynamic, chỉ việc tạo class object mong muốn rồi lấy text trả về sau khi quay và tên người chơi để tạo object đó.
- - buildSectors: build layer dưới mỗi quạt, là một NSObject để lưu khoảng góc quay (theo radian) của từng quạt, vị trí bắt đầu là 0 rad, mỗi khoảng được tính dựa trên số quạt (2 * PI / số quạt) -> function này dùng để check giải thưởng quay được là giải gì. Giải thưởng sẽ được tính theo độ lệch của vòng quay so với vị trí ban đầu (theo rad), check coi độ lệch đó nằm trong khoảng của quạt nào và trả item quạt đó chứa.
+ - buildSectors: build layer dưới mỗi quạt, là một NSObject để lưu khoảng góc quay (theo radian) của từng quạt, vị trí bắt đầu là 0 rad, mỗi khoảng được tính dựa trên số quạt (2 * PI / số quạt) -> object này dùng để tính góc để quay vào giải thưởng random cho trước. Giải thưởng sẽ được tính theo độ lệch của vòng quay so với vị trí ban đầu (theo rad), check coi độ lệch đó nằm trong khoảng của quạt nào và trả item quạt đó chứa.
  */
 - (void) buildCircle
 {
@@ -425,6 +425,11 @@
 
 
 #pragma mark ketQua
+
+/*
+ - getSpinResult: để lấy kết qủa random được từ server
+ - getTag: Lấy kết quả quay được, tính theo radian
+ */
 - (void) getSpinResult
 {
     rewardIndex = (int) arc4random_uniform(rewards.count);
