@@ -9,6 +9,7 @@
     - Build alert view để nhập voucher để tăng lượt quay (không quay khi lượt quay = 0, mỗi lần quay giảm 1)
     - Hầu hết số liệu là biến
     - Build tableview và pop-up view cho button cơ cấu, trúng giải, thưởng
+    - Autolayout
 
 **Chưa làm**
     - Fix một số bug nhỏ (như các số đo góc chưa chính xác và có độ lệch khi quay nhiều lần)
@@ -18,7 +19,6 @@
 
 **Đang làm**
     - Partition code (đưa vòng tròn thành object)
-    - Auto layout
 
 Lists of UI:
 - buttonsContainer
@@ -33,3 +33,10 @@ Lists of UI:
 - lanQuayLabel (0)
 - lanQuayBtn
 
+![Simulator Screen Shot - iPod touch (7th generation) - 2022-07-15 at 17 06 35](https://user-images.githubusercontent.com/91571142/179202883-27d6f3c3-5ccd-45b3-a795-2148ed3ca4a5.png)
+![Simulator Screen Shot - iPod touch (7th generation) - 2022-07-15 at 17 06 42](https://user-images.githubusercontent.com/91571142/179202889-2ba935f9-768b-4fc4-83fc-0bf8ea1baa7a.png)
+![Simulator Screen Shot - iPod touch (7th generation) - 2022-07-15 at 17 06 32](https://user-images.githubusercontent.com/91571142/179202896-e36055fb-38c5-4e33-92eb-79485b99e1e3.png)
+![Simulator Screen Shot - iPod touch (7th generation) - 2022-07-15 at 17 06 20](https://user-images.githubusercontent.com/91571142/179202898-6aba9b8a-d6a6-4579-9b60-56934f4f8f35.png)
+![Simulator Screen Shot - iPod touch (7th generation) - 2022-07-15 at 17 06 22](https://user-images.githubusercontent.com/91571142/179202901-d090b404-a4f7-4013-a3bf-99a505796496.png)
+![Simulator Screen Shot - iPod touch (7th generation) - 2022-07-15 at 17 06 28](https://user-images.githubusercontent.com/91571142/179202903-eb05c611-fd23-4674-805a-573096986e00.png)
+![Simulator Screen Shot - iPod touch (7th generation) - 2022-07-15 at 17 06 11](https://user-images.githubusercontent.com/91571142/179202909-03a05efa-c0d8-41d5-be42-4cd5f842321a.png)
