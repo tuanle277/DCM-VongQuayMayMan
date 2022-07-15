@@ -21,6 +21,9 @@
     - Partition code (đưa vòng tròn thành object)
 
 Lists of UI:
+- introTitle
+- titleView
+- titleBackground
 - buttonsContainer
 - coCaubtn
 - thuongBtn
