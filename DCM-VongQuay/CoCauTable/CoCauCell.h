@@ -7,9 +7,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) IBOutlet UILabel *giaiLabel;
 @property (strong, nonatomic) IBOutlet UILabel *phanThuongLabel;
 @property (strong, nonatomic) IBOutlet UILabel *soLuongLabel;
-@property (weak, nonatomic) IBOutlet UIView *giaiContainer;
-@property (weak, nonatomic) IBOutlet UIView *phanThuongContainer;
-@property (weak, nonatomic) IBOutlet UIView *soLuongContainer;
+@property (strong, nonatomic) IBOutlet UIView *giaiContainer;
+@property (strong, nonatomic) IBOutlet UIView *phanThuongContainer;
+@property (strong, nonatomic) IBOutlet UIView *soLuongContainer;
 
 - (void) setUp: (GiaiThuong *) phanThuong withIndexPath: (NSIndexPath *) indexPath;
 + (NSString *) identifier;

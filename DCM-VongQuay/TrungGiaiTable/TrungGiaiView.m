@@ -13,6 +13,8 @@
 
 @end
 
+#pragma mark trungGiaiView
+
 @implementation TrungGiaiView
 
 - (id)initWithFrame:(CGRect)frame withData: (NSMutableArray *) data {
@@ -54,8 +56,6 @@
     tableView.delegate = self;
     tableView.dataSource = self;
     [tableView registerNib: [UINib nibWithNibName: TrungGiaiCell.identifier  bundle:nil] forCellReuseIdentifier: TrungGiaiCell.identifier];
-    tableView.rowHeight = 100;
-    tableView.estimatedRowHeight = 100;
     TrungGiaiHeader *header = [[TrungGiaiHeader alloc] initWithFrame: CGRectMake(backgroundView.bounds.origin.x, backgroundView.bounds.origin.y, backgroundView.bounds.size.width, backgroundView.frame.size.height / 4)];
     [superview addSubview: self];
     [superview addSubview: backgroundView];
@@ -77,6 +77,8 @@
                          self->titleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
                      }];
     tableView.allowsSelection = FALSE;
+    tableView.estimatedRowHeight = 100;
+    tableView.rowHeight = tableView.frame.size.height / 3;
 }
 
 - (void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -92,6 +94,7 @@
     cell = [tableView dequeueReusableCellWithIdentifier: TrungGiaiCell.identifier forIndexPath: indexPath];
     NguoiChoiTrungGiai *nguoiChoi = datas[indexPath.row];
     [cell setUp: nguoiChoi withIndexPath:indexPath];
+    
     return cell;
 }
 

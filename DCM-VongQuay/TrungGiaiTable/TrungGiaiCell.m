@@ -32,6 +32,18 @@
     self.SDTBackground.layer.borderWidth = 1.0;
     self.thoiGianBackground.layer.borderWidth = 1.0;
     self.indexPath = indexPath;
+    [[self.nguoiChoiBackground.heightAnchor constraintEqualToAnchor: self.heightAnchor] setActive: TRUE];
+    [[self.phanThuongBackground.heightAnchor constraintEqualToAnchor: self.heightAnchor] setActive: TRUE];
+    [[self.SDTBackground.heightAnchor constraintEqualToAnchor: self.heightAnchor] setActive: TRUE];
+    [[self.thoiGianBackground.heightAnchor constraintEqualToAnchor: self.heightAnchor] setActive: TRUE];
+    [[self.nguoiChoiBackground.widthAnchor constraintEqualToAnchor: self.widthAnchor multiplier: 0.25] setActive: TRUE];
+    [[self.phanThuongBackground.widthAnchor constraintEqualToAnchor: self.widthAnchor multiplier:0.25] setActive: TRUE];
+    [[self.SDTBackground.widthAnchor constraintEqualToAnchor: self.widthAnchor multiplier:0.25] setActive: TRUE];
+    [[self.thoiGianBackground.widthAnchor constraintEqualToAnchor: self.widthAnchor multiplier:0.25] setActive: TRUE];
+    [[self.nguoiChoiBackground.leftAnchor constraintEqualToAnchor: self.leftAnchor] setActive: TRUE];
+    [[self.phanThuongBackground.leftAnchor constraintEqualToAnchor: self.nguoiChoiBackground.rightAnchor] setActive: TRUE];
+    [[self.SDTBackground.leftAnchor constraintEqualToAnchor: self.phanThuongBackground.rightAnchor] setActive: TRUE];
+    [[self.thoiGianBackground.leftAnchor constraintEqualToAnchor: self.SDTBackground.rightAnchor] setActive: TRUE];
 }
 
 + (NSString *) identifier

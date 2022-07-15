@@ -17,35 +17,51 @@
                 <rect key="frame" x="0.0" y="0.0" width="390" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OcC-cP-6LZ">
+                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OcC-cP-6LZ">
                         <rect key="frame" x="0.0" y="0.0" width="200" height="100"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v1k-tP-YKX">
-                                <rect key="frame" x="8" y="40" width="180" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v1k-tP-YKX">
+                                <rect key="frame" x="8" y="0.0" width="41.5" height="100"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="v1k-tP-YKX" secondAttribute="trailing" constant="12" id="4cq-Nf-QCD"/>
+                            <constraint firstItem="v1k-tP-YKX" firstAttribute="leading" secondItem="OcC-cP-6LZ" secondAttribute="leading" constant="8" id="NdR-1R-nGT"/>
+                            <constraint firstItem="v1k-tP-YKX" firstAttribute="top" secondItem="OcC-cP-6LZ" secondAttribute="top" id="hiH-1M-tfW"/>
+                            <constraint firstAttribute="bottom" secondItem="v1k-tP-YKX" secondAttribute="bottom" id="onu-Wc-cqM"/>
+                        </constraints>
                     </view>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pHh-mj-JNT">
+                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pHh-mj-JNT">
                         <rect key="frame" x="200" y="0.0" width="190" height="100"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSI-QW-p5Q">
-                                <rect key="frame" x="8" y="40" width="174" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSI-QW-p5Q">
+                                <rect key="frame" x="8" y="0.0" width="163" height="100"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="BSI-QW-p5Q" secondAttribute="trailing" constant="8" id="359-wQ-Kow"/>
+                            <constraint firstItem="BSI-QW-p5Q" firstAttribute="leading" secondItem="pHh-mj-JNT" secondAttribute="leading" constant="8" id="GTg-D2-k10"/>
+                            <constraint firstItem="BSI-QW-p5Q" firstAttribute="top" secondItem="pHh-mj-JNT" secondAttribute="top" id="Gra-Gj-mcc"/>
+                            <constraint firstAttribute="bottom" secondItem="BSI-QW-p5Q" secondAttribute="bottom" id="YoA-nw-Nay"/>
+                        </constraints>
                     </view>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="pHh-mj-JNT" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="JG5-6h-qvn"/>
+                    <constraint firstItem="pHh-mj-JNT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Swm-wR-hFA"/>
+                    <constraint firstAttribute="bottom" secondItem="OcC-cP-6LZ" secondAttribute="bottom" id="U3X-ym-1sX"/>
+                    <constraint firstAttribute="bottom" secondItem="pHh-mj-JNT" secondAttribute="bottom" id="bZH-dd-2I9"/>
+                    <constraint firstItem="OcC-cP-6LZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="tBH-BK-9t7"/>
+                    <constraint firstItem="OcC-cP-6LZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zhi-v9-duD"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>

@@ -13,6 +13,8 @@
 
 @end
 
+#pragma mark coCauView
+
 @implementation CoCauView
 
 - (id)initWithFrame:(CGRect)frame withData: (NSMutableArray *) data {
@@ -23,6 +25,8 @@
     [self configureTableView];
     [self configureTableTitle];
     [superview addSubview: titleView];
+
+
     return self;
 }
 
@@ -42,25 +46,24 @@
 {
     backgroundView = [[UIView alloc] initWithFrame: frame];
     backgroundView.backgroundColor = UIColor.whiteColor;
-    NSLog(@"background view has width %f and height %f", backgroundView.frame.size.width, backgroundView.frame.size.height);
     backgroundView.layer.borderWidth = 2.0;
 }
 
 - (void)configureTableView
 {
     self.backgroundColor = [UIColor colorWithRed: 0.8 green:0.0 blue:0.0 alpha:0.3];
-    tableView = [[UITableView alloc] initWithFrame: CGRectMake(backgroundView.bounds.origin.x, backgroundView.bounds.origin.y + backgroundView.bounds.size.height / 4, backgroundView.bounds.size.width, backgroundView.bounds.size.height * 3 / 4)];
+    tableView = [[UITableView alloc] initWithFrame: CGRectMake(backgroundView.bounds.origin.x, backgroundView.bounds.origin.y + backgroundView.bounds.size.height / 4, backgroundView.bounds.size.width, backgroundView.frame.size.height * 3 / 4)];
     tableView.showsVerticalScrollIndicator = YES;
     tableView.delegate = self;
     tableView.dataSource = self;
     [tableView registerNib: [UINib nibWithNibName: CoCauCell.identifier bundle:nil] forCellReuseIdentifier: CoCauCell.identifier];
-    tableView.rowHeight = 85;
-    tableView.estimatedRowHeight = 85;
-    CoCauHeader *header = [[CoCauHeader alloc] initWithFrame: CGRectMake(backgroundView.bounds.origin.x, backgroundView.bounds.origin.y, backgroundView.bounds.size.width, backgroundView.bounds.size.height / 4)];
+    CoCauHeader *header = [[CoCauHeader alloc] initWithFrame: CGRectMake(backgroundView.bounds.origin.x, backgroundView.bounds.origin.y, backgroundView.frame.size.width, backgroundView.frame.size.height / 4)];
     [superview addSubview: self];
     [superview addSubview: backgroundView];
     [backgroundView addSubview: header];
     [backgroundView addSubview: tableView];
+    NSLog(@"backgroundView width is %f, tableView width is %f", backgroundView.frame.size.width, tableView.frame.size.width);
+    NSLog(@"backgroundView height is %f, tableView height is %f", backgroundView.frame.size.height, backgroundView.frame.size.height);
 }
 
 - (void)show
@@ -77,6 +80,8 @@
                          self->titleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
                      }];
     tableView.allowsSelection = FALSE;
+    tableView.estimatedRowHeight = 85;
+    tableView.rowHeight = tableView.frame.size.height / 3;
 }
 
 - (void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

@@ -10,7 +10,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CoCauHeader">
             <connections>
+                <outlet property="coCauLabel" destination="Hso-W7-Noh" id="0lA-ok-Qlp"/>
+                <outlet property="giaiThuongLabel" destination="idL-CL-FY8" id="wk5-Xr-deR"/>
                 <outlet property="headerView" destination="H2p-sc-9uM" id="QE0-uS-m5u"/>
+                <outlet property="soLuongLabel" destination="muq-Sz-FxV" id="aJu-tI-GrX"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -21,29 +24,40 @@
                 <rect key="frame" x="0.0" y="0.0" width="364" height="149"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cơ cấu giải" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hso-W7-Noh">
-                        <rect key="frame" x="0.0" y="64" width="107" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cơ cấu giải" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hso-W7-Noh">
+                        <rect key="frame" x="0.0" y="29" width="91" height="91"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phần thưởng" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idL-CL-FY8">
-                        <rect key="frame" x="115" y="64" width="146" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Phần thưởng" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idL-CL-FY8">
+                        <rect key="frame" x="99" y="29" width="161" height="91"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Số lượng" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muq-Sz-FxV">
-                        <rect key="frame" x="254" y="64" width="110" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Số lượng" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muq-Sz-FxV">
+                        <rect key="frame" x="259" y="29" width="105" height="90"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <color key="backgroundColor" red="0.094123251736164093" green="0.60942548513412476" blue="0.10704768449068069" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="Hso-W7-Noh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="5Q9-mt-uhq"/>
+                    <constraint firstItem="muq-Sz-FxV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="5ob-dW-TtK"/>
+                    <constraint firstItem="idL-CL-FY8" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.5" id="Fwo-SL-SfR"/>
+                    <constraint firstItem="idL-CL-FY8" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.610738" id="JEq-Rq-F8k"/>
+                    <constraint firstItem="muq-Sz-FxV" firstAttribute="leading" secondItem="idL-CL-FY8" secondAttribute="trailing" id="VoG-Md-ceQ"/>
+                    <constraint firstItem="idL-CL-FY8" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ZoA-by-OsQ"/>
+                    <constraint firstItem="Hso-W7-Noh" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.610738" id="bxW-t3-rY3"/>
+                    <constraint firstItem="muq-Sz-FxV" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.25" id="cpa-zh-e53"/>
+                    <constraint firstItem="Hso-W7-Noh" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="f1Z-zD-311"/>
+                    <constraint firstItem="muq-Sz-FxV" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.604027" id="kjd-uX-wgj"/>
+                    <constraint firstItem="idL-CL-FY8" firstAttribute="leading" secondItem="Hso-W7-Noh" secondAttribute="trailing" id="pah-4c-x4F"/>
+                    <constraint firstItem="Hso-W7-Noh" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.25" id="zMM-wS-Lxu"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <point key="canvasLocation" x="163.768115942029" y="143.63839285714286"/>

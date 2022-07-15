@@ -13,6 +13,8 @@
 
 @end
 
+#pragma mark thuongView
+
 @implementation ThuongView
 
 - (id)initWithFrame:(CGRect)frame withData: (NSMutableArray *) data {
@@ -34,6 +36,7 @@
     UILabel *title = [[UILabel alloc] initWithFrame: CGRectMake(titleView.bounds.origin.x, titleView.frame.size.height / 3, titleView.frame.size.width, titleView.frame.size.height / 3)];
     title.textAlignment = NSTextAlignmentCenter;
     title.textColor = UIColor.blackColor;
+    title.adjustsFontSizeToFitWidth = TRUE;
     title.text = @"Phần thưởng của tôi";
     [titleView addSubview: title];
 }
@@ -54,8 +57,6 @@
     tableView.delegate = self;
     tableView.dataSource = self;
     [tableView registerNib: [UINib nibWithNibName: ThuongCell.identifier bundle:nil] forCellReuseIdentifier: ThuongCell.identifier];
-    tableView.rowHeight = 85;
-    tableView.estimatedRowHeight = 85;
     ThuongHeader *header = [[ThuongHeader alloc] initWithFrame: CGRectMake(backgroundView.bounds.origin.x, backgroundView.bounds.origin.y, backgroundView.bounds.size.width, backgroundView.frame.size.height / 4)];
     [superview addSubview: self];
     [superview addSubview: backgroundView];
@@ -77,6 +78,8 @@
                          self->titleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
                      }];
     tableView.allowsSelection = FALSE;
+    tableView.estimatedRowHeight = 85;
+    tableView.rowHeight = tableView.frame.size.height / 3;
 }
 
 - (void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

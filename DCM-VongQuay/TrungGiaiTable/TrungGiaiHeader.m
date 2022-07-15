@@ -9,6 +9,10 @@
     [self addSubview: self.headerView];
     self.headerView.frame = self.bounds;
     self.headerView.layer.borderWidth = 1.0;
+    self.nguoiChoiLabel.adjustsFontSizeToFitWidth = TRUE;
+    self.phanThuongLabel.adjustsFontSizeToFitWidth = TRUE;
+    self.SDTLabel.adjustsFontSizeToFitWidth = TRUE;
+    self.thoiGianLabel.adjustsFontSizeToFitWidth = TRUE;
     return self;
 }
 @end

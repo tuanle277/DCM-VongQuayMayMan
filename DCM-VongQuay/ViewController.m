@@ -41,8 +41,8 @@
     int numberOfSectors;
     int count;
     BOOL spinning;
-    int diameter;
-    int radius;
+    float diameter;
+    float radius;
     float spinTime;
     int spinTimeInSecond;
     int lanQuay;
@@ -63,7 +63,7 @@
     screenWidth = self.view.frame.size.width;
     screenHeight = self.view.frame.size.height;
     lanQuay = 0;
-    diameter = screenWidth * 8/9;
+    diameter = screenWidth * 9/10;
     radius = diameter / 2;
     numberOfSectors = 8;
     spinTimeInSecond = 5;
@@ -72,7 +72,7 @@
     
     // danh sách giải thưởng
     rewards = [NSMutableArray arrayWithObjects:@"Thẻ nạp 1", @"Thẻ nạp 2", @"Thẻ nạp 3", @"Thẻ nạp 4", @"Thẻ nạp 5", @"Thẻ nạp 6", @"Thẻ nạp 7", @"Thẻ nạp 8", nil];
-    
+
     // danh sách màu từng phần vòng quay
     colors = [NSMutableArray arrayWithObjects: UIColor.blackColor, UIColor.blueColor, UIColor.yellowColor, UIColor.whiteColor, UIColor.greenColor, UIColor.grayColor, UIColor.orangeColor, UIColor.whiteColor, nil];
     
@@ -94,66 +94,39 @@
     [self configureTitles];
     [self configureButtons];
     [self buildCircle];
-//    VongQuay *vongQuay = [[VongQuay alloc] initWithFrame: self.view.frame  withSections: numberOfSectors withDiameter: diameter];
-//    vongQuay.colors = colors;
-//    vongQuay.rewards = rewards;
+    NSLog(@"_____________________________________________________ \r %f %f %f", self.buttonsContainer.frame.size.width, self.view.frame.size.width, self.titleBackGroundView.frame.size.width);
+    NSLog(@"_____________________________________________________ \r %f %f %f", self.buttonsContainer.frame.size.height, self.view.frame.size.height, self.titleBackGroundView.frame.size.height);
+//    VongQuay *vongQuay = [[VongQuay alloc] initWithFrame: self.view.bounds  withSections: numberOfSectors withDiameter: diameter];
+//
 //    [vongQuay buildCircle];
 //    [self.view addSubview: vongQuay.circle];
 //    [self.view addSubview: vongQuay.indicator];
+
 }
 
 - (void) configureSpinButton
 {
-    [self.spinBtn.layer setCornerRadius: 30.0];
+    NSLog(@"%f %f", self.spinBtn.frame.size.width, self.spinBtn.frame.size.height);
+    [self.spinBtn.layer setCornerRadius: self.view.frame.size.height / 28];
     [self.spinBtn setClipsToBounds: TRUE];
     [self.spinBtn.layer setBorderWidth: 5.0];
     [self.spinBtn.layer setBorderColor: UIColor.yellowColor.CGColor];
-    [self.spinBtn setTranslatesAutoresizingMaskIntoConstraints: NO];
+    [self.spinBtn.titleLabel adjustsFontSizeToFitWidth];
     [[self.spinBtn.topAnchor constraintEqualToAnchor: self.view.topAnchor constant: screenHeight * 9 /10] setActive:TRUE];
-    [[self.spinBtn.leftAnchor constraintEqualToAnchor:self.view.leftAnchor constant: (screenWidth - self.spinBtn.frame.size.width) / 2]setActive:TRUE];
-    [[self.spinBtn.bottomAnchor constraintEqualToAnchor: self.view.bottomAnchor constant: -(screenHeight / 10 - self.spinBtn.frame.size.height)] setActive: TRUE];
-    [[self.spinBtn.rightAnchor constraintEqualToAnchor: self.view.rightAnchor constant: -(screenWidth - self.spinBtn.frame.size.width) / 2] setActive: TRUE];
+
 }
 
 #pragma mark autolayout
 
 - (void) configureTitles
 {
-    [self.titleView setTranslatesAutoresizingMaskIntoConstraints: NO];
-    [self.introTitle setTranslatesAutoresizingMaskIntoConstraints: NO];
-    [self.titleBackGroundView setTranslatesAutoresizingMaskIntoConstraints: NO];
-    
-    // width anchor
-    
+    // top anchor
     [[self.introTitle.topAnchor constraintEqualToAnchor: self.view.topAnchor constant: screenHeight / 18] setActive: TRUE];
-    [[self.introTitle.leftAnchor constraintEqualToAnchor: self.view.leftAnchor constant: (screenWidth - self.introTitle.frame.size.width) / 2] setActive: TRUE];
-    [[self.introTitle.rightAnchor constraintEqualToAnchor: self.view.rightAnchor constant: -(screenWidth - self.introTitle.frame.size.width) / 2] setActive: TRUE];
-    
     [[self.titleBackGroundView.topAnchor constraintEqualToAnchor: self.view.topAnchor constant: screenHeight / 8] setActive: TRUE];
-    [[self.titleBackGroundView.leftAnchor constraintEqualToAnchor: self.view.leftAnchor] setActive: TRUE];
-    [[self.titleBackGroundView.rightAnchor constraintEqualToAnchor: self.view.rightAnchor] setActive: TRUE];
-//    [[self.titleBackGroundView.widthAnchor constraintEqualToAnchor:self.view.widthAnchor constant: 0 ] setActive: TRUE];
-    
-    [[self.titleView.topAnchor constraintEqualToAnchor: self.titleBackGroundView.topAnchor constant: (self.titleBackGroundView.frame.size.height - self.titleView.frame.size.height) / 2] setActive:TRUE];
-    [[self.titleView.leftAnchor constraintEqualToAnchor: self.titleBackGroundView.leftAnchor constant: (self.titleBackGroundView.frame.size.width - self.titleView.frame.size.width) / 2] setActive: TRUE];
-    [[self.titleView.rightAnchor constraintEqualToAnchor: self.titleBackGroundView.rightAnchor constant: -(self.titleBackGroundView.frame.size.width - self.titleView.frame.size.width) / 2] setActive: TRUE];
-    [[self.titleView.bottomAnchor constraintEqualToAnchor: self.titleBackGroundView.bottomAnchor constant: -(self.titleBackGroundView.frame.size.height - self.titleView.frame.size.height) / 2] setActive:TRUE];
 }
 
 - (void) configureButtons
 {
-//    [self.buttonsContainer setTranslatesAutoresizingMaskIntoConstraints: NO];
-//    [self.coCaubtn setTranslatesAutoresizingMaskIntoConstraints: NO];
-//    [self.thuongBtn setTranslatesAutoresizingMaskIntoConstraints: NO];
-//    [self.trungGiaiBtn setTranslatesAutoresizingMaskIntoConstraints: NO];
-//    [self.coCauLabel setTranslatesAutoresizingMaskIntoConstraints: NO];
-//    [self.trungGiaiLabel setTranslatesAutoresizingMaskIntoConstraints: NO];
-//    [self.thuongLabel setTranslatesAutoresizingMaskIntoConstraints: NO];
-//    [self.lanQuayLabel setTranslatesAutoresizingMaskIntoConstraints: NO];
-//    [self.lanQuayBtn setTranslatesAutoresizingMaskIntoConstraints: NO];
-//    [self.lanQuayLbl setTranslatesAutoresizingMaskIntoConstraints: NO];
-//    [self.lanQuayContainer setTranslatesAutoresizingMaskIntoConstraints: NO];
-
     [self.lanQuayLabel setAdjustsFontSizeToFitWidth: TRUE];
     [self.introTitle setAdjustsFontSizeToFitWidth: TRUE];
     [self.titleView setAdjustsFontSizeToFitWidth: TRUE];
@@ -167,47 +140,29 @@
     self.introTitle.textAlignment = NSTextAlignmentCenter;
     self.lanQuayLabel.textAlignment = NSTextAlignmentCenter;
     self.titleView.textAlignment = NSTextAlignmentCenter;
-//
-////    [[self.lanQuayBtn.widthAnchor constraintEqualToAnchor: self.buttonsContainer.heightAnchor multiplier: 1 / 2] setActive: TRUE];
-//
-//    // top anchor -> 11
-//    [[self.buttonsContainer.topAnchor constraintEqualToAnchor: self.view.topAnchor constant:screenHeight / 5] setActive: TRUE];
-//    [[self.coCaubtn.topAnchor constraintEqualToAnchor: self.buttonsContainer.topAnchor constant: (self.buttonsContainer.frame.size.height - self.coCaubtn.frame.size.height) / 2] setActive: TRUE];
-//    [[self.trungGiaiBtn.topAnchor constraintEqualToAnchor: self.buttonsContainer.topAnchor constant: (self.buttonsContainer.frame.size.height - self.trungGiaiBtn.frame.size.height) / 2] setActive: TRUE];
-//    [[self.thuongBtn.topAnchor constraintEqualToAnchor: self.buttonsContainer.topAnchor constant: (self.buttonsContainer.frame.size.height - self.thuongBtn.frame.size.height) / 2] setActive: TRUE];
-//    [[self.lanQuayContainer.topAnchor constraintEqualToAnchor: self.buttonsContainer.topAnchor constant: (self.buttonsContainer.frame.size.height - self.lanQuayContainer.frame.size.height) / 2] setActive: TRUE];
-//    [[self.coCauLabel.topAnchor constraintEqualToAnchor: self.coCaubtn.bottomAnchor constant: 1] setActive: TRUE];
-//    [[self.trungGiaiLabel.topAnchor constraintEqualToAnchor: self.trungGiaiBtn.bottomAnchor constant: 1] setActive: TRUE];
-//    [[self.thuongLabel.topAnchor constraintEqualToAnchor: self.thuongBtn.bottomAnchor constant: 1] setActive: TRUE];
-//    [[self.lanQuayLbl.topAnchor constraintEqualToAnchor: self.lanQuayContainer.bottomAnchor constant: 1] setActive: TRUE];
-//    [[self.lanQuayBtn.topAnchor constraintEqualToAnchor: self.lanQuayContainer.topAnchor constant: (self.lanQuayContainer.frame.size.height - self.lanQuayBtn.frame.size.height) / 2] setActive: TRUE];
-//    [[self.lanQuayLabel.topAnchor constraintEqualToAnchor: self.lanQuayContainer.topAnchor constant: (self.lanQuayContainer.frame.size.height - self.lanQuayLabel.frame.size.height) / 2] setActive: TRUE];
-//
-////    //left anchor -> 10 (tru lanQuayLabel)
-//    [[self.buttonsContainer.leftAnchor constraintEqualToAnchor: self.view.leftAnchor] setActive: TRUE];
-//    [[self.coCaubtn.leftAnchor constraintEqualToAnchor: self.buttonsContainer.leftAnchor constant: self.buttonsContainer.frame.size.width / 10] setActive:TRUE];
-//    [[self.trungGiaiBtn.leftAnchor constraintEqualToAnchor: self.buttonsContainer.leftAnchor constant: self.buttonsContainer.frame.size.width * 3 / 10] setActive:TRUE];
-//    [[self.thuongBtn.leftAnchor constraintEqualToAnchor: self.buttonsContainer.leftAnchor constant: self.buttonsContainer.frame.size.width / 2] setActive:TRUE];
-//    [[self.lanQuayContainer.leftAnchor constraintEqualToAnchor: self.buttonsContainer.leftAnchor constant: self.buttonsContainer.frame.size.width * 7 / 10] setActive:TRUE];
-//    [[self.coCauLabel.leftAnchor constraintEqualToAnchor: self.coCaubtn.leftAnchor constant: (self.coCaubtn.frame.size.width - self.coCauLabel.frame.size.width) / 2] setActive: TRUE];
-//    [[self.trungGiaiLabel.leftAnchor constraintEqualToAnchor: self.trungGiaiBtn.leftAnchor constant: (self.trungGiaiBtn.frame.size.width - self.trungGiaiLabel.frame.size.width) / 2] setActive: TRUE];
-//    [[self.thuongLabel.leftAnchor constraintEqualToAnchor: self.thuongBtn.leftAnchor constant: (self.thuongBtn.frame.size.width - self.thuongLabel.frame.size.width) / 2] setActive: TRUE];
-//    [[self.lanQuayLbl.leftAnchor constraintEqualToAnchor: self.lanQuayContainer.leftAnchor constant: (self.lanQuayContainer.frame.size.width - self.lanQuayLbl.frame.size.width) / 2] setActive: TRUE];
-//    [[self.lanQuayBtn.leftAnchor constraintEqualToAnchor: self.lanQuayContainer.rightAnchor constant: -2] setActive: TRUE];
-//
-////    // right anchor
-//    [[self.lanQuayLabel.rightAnchor constraintEqualToAnchor: self.lanQuayContainer.rightAnchor constant: -3] setActive: TRUE];
-//    [[self.buttonsContainer.rightAnchor constraintEqualToAnchor: self.view.rightAnchor] setActive: TRUE];
-//    [[self.coCaubtn.rightAnchor constraintEqualToAnchor: self.lanQuayContainer.rightAnchor constant: -self.buttonsContainer.frame.size.width * 4/5] setActive: TRUE];
-//    NSLog(@"%f %f", self.titleBackGroundView.frame.size.width, self.view.frame.size.width);
-//    NSLog(@"%f %f %f %f", self.coCaubtn.frame.size.width, self.coCaubtn.frame.size.height, self.view.frame.size.width, self.view.frame.size.height);
-////
-////
-////    //bottom anchor
-//    [[self.buttonsContainer.bottomAnchor constraintEqualToAnchor: self.view.bottomAnchor constant: - screenHeight * 9/13 ] setActive: TRUE];
-//
-
+    self.lanQuayLbl.textAlignment = NSTextAlignmentRight;
     
+  // top anchor
+    [[self.buttonsContainer.topAnchor constraintEqualToAnchor: self.view.topAnchor constant:screenHeight / 5] setActive: TRUE];
+    [[self.coCauLabel.topAnchor constraintEqualToAnchor: self.coCaubtn.bottomAnchor constant: 1] setActive: TRUE];
+    [[self.trungGiaiLabel.topAnchor constraintEqualToAnchor: self.trungGiaiBtn.bottomAnchor constant: 1] setActive: TRUE];
+    [[self.thuongLabel.topAnchor constraintEqualToAnchor: self.thuongBtn.bottomAnchor constant: 1] setActive: TRUE];
+    [[self.lanQuayLbl.topAnchor constraintEqualToAnchor: self.lanQuayContainer.bottomAnchor constant: 1] setActive: TRUE];
+//    [[self.lanQuayBtn.topAnchor constraintEqualToAnchor: self.lanQuayContainer.topAnchor constant: (self.lanQuayContainer.frame.size.height - self.lanQuayBtn.frame.size.height) / 2] setActive: TRUE];
+
+    // left anchor
+    [[self.coCaubtn.leftAnchor constraintEqualToAnchor: self.view.leftAnchor constant: self.view.frame.size.width / 10] setActive:TRUE];
+    [[self.trungGiaiBtn.leftAnchor constraintEqualToAnchor: self.view.leftAnchor constant: self.view.frame.size.width * 3 / 10] setActive:TRUE];
+    [[self.thuongBtn.leftAnchor constraintEqualToAnchor: self.view.leftAnchor constant: self.view.frame.size.width / 2] setActive:TRUE];
+    [[self.lanQuayContainer.leftAnchor constraintEqualToAnchor: self.view.leftAnchor constant: self.view.frame.size.width * 7 / 10] setActive:TRUE];
+    [[self.lanQuayBtn.leftAnchor constraintEqualToAnchor: self.lanQuayContainer.rightAnchor constant: -8] setActive: TRUE];
+
+    // right anchor
+    [[self.lanQuayLabel.rightAnchor constraintEqualToAnchor: self.lanQuayContainer.rightAnchor constant: -3] setActive: TRUE];
+    
+    self.lanQuayContainer.layer.borderWidth = 1.0;
+    
+
 }
 
 #pragma mark ConfigureButtons
@@ -226,7 +181,7 @@
 
 - (IBAction)trungGiaiAction:(UIButton *)sender
 {
-    TrungGiaiView *trungGiaiView = [[TrungGiaiView alloc] initWithFrame:CGRectMake((screenWidth - 400) / 2, screenHeight * 5 / 16 , 400, screenHeight * 3 / 8) withData:nguoiChoiTrungGiaiData];
+    TrungGiaiView *trungGiaiView = [[TrungGiaiView alloc] initWithFrame:CGRectMake(screenWidth / 16, screenHeight * 5 / 16 , screenWidth * 7/8, screenHeight * 3 / 8) withData:nguoiChoiTrungGiaiData];
     [trungGiaiView show];
 }
 
@@ -254,7 +209,7 @@
 - (void) buildCircle
 {
     // Tạo nền của vòng quay
-    circle = [[UIView alloc] initWithFrame: CGRectMake((screenWidth - diameter) / 2, screenHeight * 2/5, radius * 2, radius * 2)];
+    circle = [[UIView alloc] initWithFrame: CGRectMake((screenWidth - diameter) / 2, (screenHeight - diameter) * 7/10, radius * 2, radius * 2)];
     circle.layer.cornerRadius = radius;
     circle.backgroundColor = UIColor.whiteColor;
 
@@ -270,7 +225,7 @@
         [sectors.arrayOfSegments addObject: [[Segment alloc] initWithColor: colors[i] andValue:40]];
     }
 
-    indicator = [[UIView alloc] initWithFrame:CGRectMake(10, screenHeight * 2 / 5 + radius, (self.view.frame.size.width - diameter) / 2 - 10, 2)];
+    indicator = [[UIView alloc] initWithFrame:CGRectMake(10, (screenHeight - diameter) * 7 / 10 + radius, (self.view.frame.size.width - diameter) / 2 - 10, 2)];
     indicator.backgroundColor = UIColor.whiteColor;
 
     [self.view addSubview: circle];
@@ -289,7 +244,7 @@
         word.text = rewards[i];
         word.adjustsFontSizeToFitWidth = TRUE;
         word.lineBreakMode = NSLineBreakByWordWrapping;
-        word.numberOfLines = 3;
+        word.numberOfLines = 0;
         word.font = [UIFont fontWithName: @"Times new roman" size: radius / 8];
         if (i <= 1)
         {
@@ -423,7 +378,6 @@
     }
 }
 
-
 #pragma mark ketQua
 
 /*
@@ -460,6 +414,7 @@
         [self getSpinResult];
         [self buildUpRotation];
     }
+
 }
 
 #pragma mark alertControllers
@@ -471,17 +426,30 @@
 
 - (void) configureWinningAlert: (NSString *) prize
 {
-    NSString *message = [NSString stringWithFormat:@"Bạn đã nhận được phần thưởng \r %@", prize];
-    prizeAlert =  [UIAlertController alertControllerWithTitle:@"Chúc mừng" message: message
+    NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString: @"Chúc mừng"];
+    [title addAttribute: NSFontAttributeName value: [UIFont systemFontOfSize: self.view.frame.size.width / 18] range: NSMakeRange(0, title.length)];
+    NSMutableAttributedString *message = [[NSMutableAttributedString alloc] initWithString: [NSString stringWithFormat: @"Bạn đã nhận được phần thưởng \r %@", prize]];
+    [message addAttribute: NSFontAttributeName value: [UIFont systemFontOfSize: self.view.frame.size.width / 26] range: NSMakeRange(0, message.length)];
+    prizeAlert =  [UIAlertController alertControllerWithTitle:@"" message: @""
                                                preferredStyle:UIAlertControllerStyleAlert];
-    [prizeAlert.view.layer setCornerRadius:50.0];
+    [prizeAlert setValue: title forKey: @"attributedTitle"];
+    [prizeAlert setValue: message forKey: @"attributedMessage"];
+    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem: prizeAlert.view attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem: nil attribute:NSLayoutAttributeNotAnAttribute multiplier: 1 constant: self.view.frame.size.height / 5];
+    [prizeAlert.view addConstraint: height];
+    [prizeAlert.view.layer setCornerRadius: 50.0];
     UIAlertAction *actionOk = [UIAlertAction actionWithTitle: @"OK" style:UIAlertActionStyleDefault handler: nil];
     [prizeAlert addAction: actionOk];
 }
 
 - (void) configureVoucherAlert
 {
-    voucherAlert = [UIAlertController alertControllerWithTitle:@"Voucher" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    voucherAlert = [UIAlertController alertControllerWithTitle: @"" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString: @"Voucher"];
+    [title addAttribute: NSFontAttributeName value: [UIFont systemFontOfSize: self.view.frame.size.width / 20] range: NSMakeRange(0, 7)];
+    [voucherAlert setValue: title forKey: @"attributedTitle"];
+    
+    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem: voucherAlert.view attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem: nil attribute:NSLayoutAttributeNotAnAttribute multiplier: 1 constant: self.view.frame.size.height / 5];
+    [voucherAlert.view addConstraint: height];
     UIAlertAction *actionCancel = [UIAlertAction actionWithTitle: @"Cancel" style:UIAlertActionStyleCancel handler: nil];
     UIAlertAction *actionDongY = [UIAlertAction actionWithTitle:@"Đồng ý" style: UIAlertActionStyleDefault handler: ^(UIAlertAction *_Nonnull action)
                                   {
@@ -504,20 +472,25 @@
 // nhập "voucher" để quay
 - (void) configureVoucherDecision
 {
-    NSString *voucherDecision;
+    NSMutableAttributedString *voucherDecision;
     if ([voucher isEqualToString: @"voucher"])
     {
-        voucherDecision = @"Chúc mừng bạn đã nhận được một lượt chơi";
+        voucherDecision = [[NSMutableAttributedString alloc] initWithString: @"Chúc mừng bạn đã nhận được một lượt chơi"];
+        [voucherDecision addAttribute: NSFontAttributeName value: [UIFont systemFontOfSize: self.view.frame.size.width / 20] range: NSMakeRange(0, voucherDecision.length)];
         lanQuay += 1;
         self.lanQuayLabel.text = [NSString stringWithFormat: @"%d", lanQuay];
         
     }
     else
     {
-        voucherDecision = @"Mã voucher không hợp lệ";
+        voucherDecision = [[NSMutableAttributedString alloc] initWithString: @"Mã voucher không hợp lệ"];
+        [voucherDecision addAttribute: NSFontAttributeName value: [UIFont systemFontOfSize: self.view.frame.size.width / 20] range: NSMakeRange(0, 0)];
     }
     
-    voucherDecisionAlert = [UIAlertController alertControllerWithTitle:@"" message: voucherDecision preferredStyle:UIAlertControllerStyleAlert];
+    voucherDecisionAlert = [UIAlertController alertControllerWithTitle:@"" message: @"" preferredStyle:UIAlertControllerStyleAlert];
+    [voucherDecisionAlert setValue: voucherDecision forKey: @"attributedTitle"];
+    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem: voucherDecisionAlert.view attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem: nil attribute:NSLayoutAttributeNotAnAttribute multiplier: 1 constant: self.view.frame.size.height / 6];
+    [voucherDecisionAlert.view addConstraint: height];
     UIAlertAction *cancelBtn = [UIAlertAction actionWithTitle: @"Cancel" style: UIAlertActionStyleCancel handler:nil];
     
     [voucherDecisionAlert addAction: cancelBtn];

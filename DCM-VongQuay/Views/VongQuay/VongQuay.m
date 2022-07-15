@@ -4,6 +4,13 @@
 #import "Segment.h"
 
 @interface VongQuay()
+{
+    int spinTimeInSecond;
+    int lanQuay;
+    int count;
+    int spinTime;
+    int rewardIndex;
+}
 
 @end
 
@@ -39,7 +46,7 @@
 {
     // danh sách giải thưởng
     self.rewards = [NSMutableArray arrayWithObjects:@"Thẻ nạp 1", @"Thẻ nạp 2", @"Thẻ nạp 3", @"Thẻ nạp 4", @"Thẻ nạp 5", @"Thẻ nạp 6", @"Thẻ nạp 7", @"Thẻ nạp 8", nil];
-    
+
     // danh sách màu từng phần vòng quay
     self.colors = [NSMutableArray arrayWithObjects: UIColor.blackColor, UIColor.blueColor, UIColor.yellowColor, UIColor.whiteColor, UIColor.greenColor, UIColor.grayColor, UIColor.orangeColor, UIColor.whiteColor, nil];
 }
@@ -49,27 +56,27 @@
     self.circle = [[UIView alloc] initWithFrame:  CGRectMake((self.frame.size.width - self.diameter) / 2, 400, self.radius * 2, self.radius * 2)];
     self.circle.layer.cornerRadius = self.radius;
     self.circle.backgroundColor = UIColor.whiteColor;
-    
-    // Tạo các phần của vòng quay
+
+    // Tạo các quạt của UI vòng quay
     VePhanVongQuay *sectors = [[VePhanVongQuay alloc] init];
     sectors.startAngle = -PI - 2 * PI / self.numberOfSectors / 2;
     sectors.radius = self.radius;
     sectors.frame = self.circle.bounds;
     sectors.arrayOfSegments = [NSMutableArray array];
-    
+
     for (int i = 0; i < self.numberOfSectors; i++)
     {
         [sectors.arrayOfSegments addObject: [[Segment alloc] initWithColor: self.colors[i] andValue:40]];
     }
-    
+
     self.indicator = [[UIView alloc] initWithFrame:CGRectMake(10, 575, (self.frame.size.width - self.diameter) / 2 - 10, 1)];
     self.indicator.backgroundColor = UIColor.whiteColor;
-    
+
     [self.circle addSubview: sectors];
     [self buildItems];
     [self buildSectors];
 }
-    
+
 - (void) buildItems
 {
     // make items (UILabel)
@@ -123,7 +130,7 @@
 {
     CGAffineTransform t = CGAffineTransformRotate(self.circle.transform, -PI * 2);
     self.circle.transform = t;
-    self.timer = [NSTimer scheduledTimerWithTimeInterval: self.spinTime target:self
+    self.timer = [NSTimer scheduledTimerWithTimeInterval: spinTime target:self
                                     selector:@selector(buildUpRotation)
                                    userInfo:nil
                                     repeats:NO];
@@ -132,18 +139,33 @@
 
 - (void) updateUp
 {
-    [self.timer invalidate];
-    CGAffineTransform t = CGAffineTransformRotate(self.circle.transform, -PI * 2);
-    self.circle.transform = t;
-    self.spinTime -= 0.00002;
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:self.spinTime target:self selector:@selector(updateUp) userInfo:nil repeats:NO];
+//    [self.timer invalidate];
+//    CGAffineTransform t = CGAffineTransformRotate(self.circle.transform, -PI * 2);
+//    self.circle.transform = t;
+//    self.spinTime -= 0.00002;
+//    self.timer = [NSTimer scheduledTimerWithTimeInterval:self.spinTime target:self selector:@selector(updateUp) userInfo:nil repeats:NO];
+//    count ++;
+//
+//    // 0.06730 -> thời gian từ lúc chậm lại cho đến khi dừng hẳn (test 1 - 5s)
+//    // 4728 -> số vòng xoay được trong 1 giây => nhân số giây mong muốn
+//    if (count >= 4730 * 5)
+//    {
+////        [self getSpinResult];
+//        if ((atan2f(self.circle.transform.b, self.circle.transform.a) + 0.06710 >= (self.arrayOfSectors)[rewardIndex].lowerBound - (PI * 2 / self.numberOfSectors)) && (atan2f(self.circle.transform.b, self.circle.transform.a) + 0.06710 <= [self.arrayOfSectors objectAtIndex:rewardIndex].higherBound - (PI * 2 / self.numberOfSectors)))
+//        {
+//            // tính tốc độ chậm lại thành của vòng quay
+//            spinTime = (-spinTime) / 1835;
+//            [self.timer invalidate];
+//            [self turnOffRotation];
+//        }
+//    }
 }
 
 - (void) turnOffRotation
 {
     CGAffineTransform t = CGAffineTransformRotate(self.circle.transform, -PI * 2);
     self.circle.transform = t;
-    self.timer = [NSTimer scheduledTimerWithTimeInterval: self.spinTime target:self
+    self.timer = [NSTimer scheduledTimerWithTimeInterval: spinTime target:self
                                     selector:@selector(turnOffRotation)
                                    userInfo:nil
                                     repeats:NO];
@@ -153,13 +175,14 @@
 
 - (void) updateDown
 {
+    // Quay chậm cho đến lúc dừng hẳn
     [self.timer invalidate];
     CGAffineTransform t = CGAffineTransformRotate(self.circle.transform, -PI * 2);
     self.circle.transform = t;
-    self.spinTime += 0.00003;
-    if (self.spinTime < 0.01f)
+    spinTime += 0.00003;
+    if (spinTime < 0.01f)
     {
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:self.spinTime target:self selector:@selector(updateDown) userInfo:nil repeats:NO];
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:spinTime target:self selector:@selector(updateDown) userInfo:nil repeats:NO];
     }
     else
     {
@@ -172,19 +195,16 @@
                 break;
             }
         }
-        
+        // Vòng ngược lại hoặc tiến tới để dừng ở giữa phần vòng quay
         CGAffineTransform t = CGAffineTransformRotate(self.circle.transform, -newVal);
         self.circle.transform = t;
-        self.self.circleRotationInRadian = atan2f(self.circle.transform.b, self.circle.transform.a);
-        NSLog (@"actual rotation is %f", self.circleRotationInRadian);
+        self.circleRotationInRadian = atan2f(self.circle.transform.b, self.circle.transform.a);
+//        NSLog(@"phần thưởng là: %@, số giây xoay là: %d \r ______________________________________", rewards[[self getTag: self.circleRotationInRadian]], count / 4730);
 //        [self configureWinningAlert: [rewards objectAtIndex: [self getTag: circleRotationInRadian]]];
 //        [self presentViewController: prizeAlert animated:YES completion:nil];
 //        lanQuay -= 1;
 //        self.lanQuayLabel.text = [NSString stringWithFormat: @"%d", lanQuay];
     }
 }
-
-
-
 
 @end

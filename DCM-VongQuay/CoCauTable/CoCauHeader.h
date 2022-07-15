@@ -3,6 +3,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CoCauHeader : UIView
+@property (weak, nonatomic) IBOutlet UILabel *coCauLabel;
+@property (weak, nonatomic) IBOutlet UILabel *giaiThuongLabel;
+@property (weak, nonatomic) IBOutlet UILabel *soLuongLabel;
 @property (weak, nonatomic) IBOutlet CoCauHeader *headerView;
 @end
 
