@@ -1,4 +1,4 @@
-Source code -> branch m
+Source code -> branch master
 
 **Đã làm**
 - Build UI cơ bản (các label, nút bấm)
