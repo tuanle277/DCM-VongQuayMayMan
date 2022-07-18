@@ -10,9 +10,10 @@
 - Hầu hết số liệu là biến
 - Build tableview và pop-up view cho button cơ cấu, trúng giải, thưởng
 - Autolayout
+- Test JSON parsing using mockJSON
+- Độ chính xác vòng quay tới lúc hiện tại: 100%
 
 **Chưa làm**
-- Fix một số bug nhỏ (như các số đo góc chưa chính xác và có độ lệch khi quay nhiều lần)
 - đưa background của vòng quay may mắn vào UI
 - Nối dữ liệu với database
 - call APIs
