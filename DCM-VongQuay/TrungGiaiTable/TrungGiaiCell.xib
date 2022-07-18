@@ -104,11 +104,11 @@
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="SDTBackground" destination="yzU-vf-vpO" id="uY5-kx-IzT"/>
-                <outlet property="SDTLabel" destination="Bj1-af-gM8" id="Otg-Qm-tRP"/>
+                <outlet property="SDTLabel" destination="Bj1-af-gM8" id="ggH-ae-QEa"/>
                 <outlet property="nguoiChoiBackground" destination="aft-oL-6A9" id="S0I-GE-b26"/>
                 <outlet property="nguoiChoiLabel" destination="0wJ-kw-mf8" id="nLp-tW-U4S"/>
                 <outlet property="phanThuongBackground" destination="bQo-H6-8pr" id="ofX-d3-kMB"/>
-                <outlet property="phanThuongLabel" destination="xq2-80-1jS" id="JvM-7v-rcg"/>
+                <outlet property="phanThuongLabel" destination="xq2-80-1jS" id="PaD-qo-5hT"/>
                 <outlet property="thoiGianBackground" destination="IZ6-xm-DvJ" id="Dk1-xE-rha"/>
                 <outlet property="thoiGianLabel" destination="v3d-cs-mae" id="2q7-b6-eYM"/>
             </connections>

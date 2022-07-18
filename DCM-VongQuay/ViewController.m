@@ -11,7 +11,6 @@
 #import "TrungGiaiView.h"
 #import "ThuongView.h"
 
-
 @interface VongQuayViewController ()
 
 @end
@@ -65,7 +64,6 @@
     lanQuay = 0;
     diameter = screenWidth * 9/10;
     radius = diameter / 2;
-    numberOfSectors = 8;
     spinTimeInSecond = 5;
     sectorLength = PI * 2 / numberOfSectors;
     arrayOfSectors = [[NSMutableArray alloc]init];
@@ -77,14 +75,34 @@
     colors = [NSMutableArray arrayWithObjects: UIColor.blackColor, UIColor.blueColor, UIColor.yellowColor, UIColor.whiteColor, UIColor.greenColor, UIColor.grayColor, UIColor.orangeColor, UIColor.whiteColor, nil];
     
     // danh sách giải thưởng mẫu
-    giaiThuongChungData = [NSMutableArray arrayWithObjects: [[GiaiThuong alloc] initWithInfo: @"Giải nhất" withPhanThuong: @"Thẻ nạp 100.000đ" andSoLuong: 100], [[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" andSoLuong: 50], [[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" andSoLuong: 50], [[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" andSoLuong: 50], [[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" andSoLuong: 50], [[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" andSoLuong: 50], nil];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource: @"phanthuong" ofType: @"json"];
+    NSData *jsonData = [NSData dataWithContentsOfFile: filePath];
+    NSError *error;
+    NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData: jsonData options: NSJSONReadingAllowFragments error:&error];
+    giaiThuongChungData = [NSMutableArray array];
+    for (int i = 0; i < [jsonDict[@"phan_thuong"] count]; ++i)
+    {
+        [giaiThuongChungData addObject: [[GiaiThuong alloc] initWithInfo: jsonDict[@"phan_thuong"][i][@"co_cau"] withPhanThuong:jsonDict[@"phan_thuong"][i][@"phan_thuong"] andSoLuong: [jsonDict[@"phan_thuong"][i][@"so_luong"] intValue]]];
+    }
+//    [NSMutableArray arrayWithObjects: [[GiaiThuong alloc] initWithInfo: @"Giải nhất" withPhanThuong: @"Thẻ nạp 100.000đ" andSoLuong: 100], [[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" andSoLuong: 50], [[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" andSoLuong: 50], [[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" andSoLuong: 50], [[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" andSoLuong: 50], [[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" andSoLuong: 50], nil];
     
     // danh sách người chơi trúng giải mẫu
-    nguoiChoiTrungGiaiData = [NSMutableArray arrayWithObjects: [[NguoiChoiTrungGiai alloc] initWithGiaiThuong:[[GiaiThuong alloc] initWithInfo: @"Giải nhất" withPhanThuong: @"Thẻ nạp 100.000đ" withThoiGian: @"22/06/2022"] withTen: @"Nguyễn Văn A" andSDT:@"0932482122"], [[NguoiChoiTrungGiai alloc] initWithGiaiThuong:[[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" withThoiGian: @"23/06/2022"] withTen: @"Nguyễn Văn B" andSDT:@"0923828382"], nil];
-    
+    NSString *filePathPlayer = [[NSBundle mainBundle] pathForResource: @"nguoichoi" ofType: @"json"];
+    NSData *jsonDataPlayer = [NSData dataWithContentsOfFile: filePathPlayer];
+    NSDictionary *jsonDictPlayer = [NSJSONSerialization JSONObjectWithData: jsonDataPlayer options: NSJSONReadingAllowFragments error:&error];
+    nguoiChoiTrungGiaiData = [NSMutableArray array];
+    NSLog(@"%@", jsonDict);
+    NSLog(@"%@", jsonDictPlayer);
+    for (int i = 0; i < [jsonDictPlayer[@"nguoi_choi"] count]; ++i)
+    {
+        [nguoiChoiTrungGiaiData addObject: [[NguoiChoiTrungGiai alloc] initWithGiaiThuong:[[GiaiThuong alloc] initWithInfo: jsonDict[@"phan_thuong"][i][@"co_cau"] withPhanThuong: jsonDict[@"phan_thuong"][i][@"phan_thuong"] withThoiGian: jsonDictPlayer[@"nguoi_choi"][i][@"thoi_gian"]] withTen: jsonDictPlayer[@"nguoi_choi"][i][@"ten"] andSDT: jsonDictPlayer[@"nguoi_choi"][i][@"SDT"]]];
+
+    }
+//    nguoiChoiTrungGiaiData = [NSMutableArray arrayWithObjects: [[NguoiChoiTrungGiai alloc] initWithGiaiThuong:[[GiaiThuong alloc] initWithInfo: @"Giải nhất" withPhanThuong: @"Thẻ nạp 100.000đ" withThoiGian: @"22/06/2022"] withTen: @"Nguyễn Văn A" andSDT:@"0932482122"], [[NguoiChoiTrungGiai alloc] initWithGiaiThuong:[[GiaiThuong alloc] initWithInfo: @"Giải nhì" withPhanThuong: @"Thẻ nạp 50.000đ" withThoiGian: @"23/06/2022"] withTen: @"Nguyễn Văn B" andSDT:@"0923828382"], nil];
     // danh sách phần thưởng của tôi mẫu
     giaiThuongToiData = [NSMutableArray arrayWithObjects: [[GiaiThuong alloc] initWithPhanThuong:@"Thẻ nạp 20.000đ" withThoiGian:@"22/06/2022"], [[GiaiThuong alloc] initWithPhanThuong:@"Thẻ nạp 50.000đ" withThoiGian:@"24/06/2022"], [[GiaiThuong alloc] initWithPhanThuong:@"Thẻ nạp 100.000đ" withThoiGian:@"12/04/2012"], [[GiaiThuong alloc] initWithPhanThuong:@"Thẻ nạp 200.000đ" withThoiGian:@"15/04/2016"], [[GiaiThuong alloc] initWithPhanThuong:@"Thẻ nạp 100.000đ" withThoiGian:@"10/02/2021"], nil];
 
+    numberOfSectors = [giaiThuongChungData count];
 }
 
 - (void)viewDidLoad {
@@ -148,7 +166,6 @@
     [[self.trungGiaiLabel.topAnchor constraintEqualToAnchor: self.trungGiaiBtn.bottomAnchor constant: 1] setActive: TRUE];
     [[self.thuongLabel.topAnchor constraintEqualToAnchor: self.thuongBtn.bottomAnchor constant: 1] setActive: TRUE];
     [[self.lanQuayLbl.topAnchor constraintEqualToAnchor: self.lanQuayContainer.bottomAnchor constant: 1] setActive: TRUE];
-//    [[self.lanQuayBtn.topAnchor constraintEqualToAnchor: self.lanQuayContainer.topAnchor constant: (self.lanQuayContainer.frame.size.height - self.lanQuayBtn.frame.size.height) / 2] setActive: TRUE];
 
     // left anchor
     [[self.coCaubtn.leftAnchor constraintEqualToAnchor: self.view.leftAnchor constant: self.view.frame.size.width / 10] setActive:TRUE];
@@ -241,7 +258,7 @@
     // make items (UILabel) (items có thể thay đổi thành object nào tùy thích)
     for (int i = 0; i < numberOfSectors; i++) {
         UILabel *word = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, radius, 70)];
-        word.text = rewards[i];
+        word.text = giaiThuongChungData[i].phanThuong;
         word.adjustsFontSizeToFitWidth = TRUE;
         word.lineBreakMode = NSLineBreakByWordWrapping;
         word.numberOfLines = 0;
@@ -317,7 +334,7 @@
     timer = [NSTimer scheduledTimerWithTimeInterval:spinTime target:self selector:@selector(updateUp) userInfo:nil repeats:NO];
     count ++;
 
-    // 0.06730 -> thời gian từ lúc chậm lại cho đến khi dừng hẳn (test 1 - 5s)
+    // 0.06730 -> thời gian từ lúc chậm lại cho đến khi dừng hẳn (test 1s - 5s)
     // 4728 -> số vòng xoay được trong 1 giây => nhân số giây mong muốn
     if (count >= 4730 * spinTimeInSecond)
     {
@@ -370,8 +387,15 @@
         CGAffineTransform t = CGAffineTransformRotate(circle.transform, -newVal);
         circle.transform = t;
         circleRotationInRadian = atan2f(circle.transform.b, circle.transform.a);
-        NSLog(@"phần thưởng là: %@, số giây xoay là: %d \r ______________________________________", rewards[[self getTag: circleRotationInRadian]], count / 4730);
-        [self configureWinningAlert: [rewards objectAtIndex: [self getTag: circleRotationInRadian]]];
+        NSLog(@"phần thưởng là: %@, số giây xoay là: %d \r ______________________________________", giaiThuongChungData[[self getTag: circleRotationInRadian]].phanThuong, count / 4730);
+        if ([[giaiThuongChungData objectAtIndex: [self getTag: circleRotationInRadian]].phanThuong isEqualToString: @"Chúc may mắn"])
+        {
+            [self configureWinningAlert: @"Chúc may mắn"];
+        }
+        else
+        {
+            [self configureWinningAlert: [giaiThuongChungData objectAtIndex: [self getTag: circleRotationInRadian]].phanThuong];
+        }
         [self presentViewController: prizeAlert animated:YES completion:nil];
         lanQuay -= 1;
         self.lanQuayLabel.text = [NSString stringWithFormat: @"%d", lanQuay];
@@ -386,8 +410,8 @@
  */
 - (void) getSpinResult
 {
-    rewardIndex = (int) arc4random_uniform(rewards.count);
-    NSLog(@"reward index is %d, phần thưởng là %@, with upper bound %f, and lower bound %f", rewardIndex, rewards[rewardIndex], arrayOfSectors[rewardIndex].higherBound, arrayOfSectors[rewardIndex].lowerBound);
+    rewardIndex = (int) arc4random_uniform(giaiThuongChungData.count);
+    NSLog(@"reward index is %d, phần thưởng là %@, with upper bound %f, and lower bound %f", rewardIndex, giaiThuongChungData[rewardIndex].phanThuong, arrayOfSectors[rewardIndex].higherBound, arrayOfSectors[rewardIndex].lowerBound);
 }
 
 - (int) getTag: (float) radian
@@ -426,10 +450,23 @@
 
 - (void) configureWinningAlert: (NSString *) prize
 {
-    NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString: @"Chúc mừng"];
-    [title addAttribute: NSFontAttributeName value: [UIFont systemFontOfSize: self.view.frame.size.width / 18] range: NSMakeRange(0, title.length)];
-    NSMutableAttributedString *message = [[NSMutableAttributedString alloc] initWithString: [NSString stringWithFormat: @"Bạn đã nhận được phần thưởng \r %@", prize]];
-    [message addAttribute: NSFontAttributeName value: [UIFont systemFontOfSize: self.view.frame.size.width / 26] range: NSMakeRange(0, message.length)];
+    NSString *titleString;
+    NSString *messageString;
+    NSLog(@"prize is %@", prize);
+    if ([prize isEqualToString: @"Chúc may mắn"])
+    {
+        titleString = @"Chúc bạn may mắn lần sau";
+        messageString = @"";
+    }
+    else
+    {
+        titleString = @"Chúc mừng \r";
+        messageString = [NSString stringWithFormat: @"Bạn đã nhận được phần thưởng \r \r  %@", prize];
+    }
+    NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString: titleString];
+    [title addAttribute: NSFontAttributeName value: [UIFont fontWithName: @"Times new Roman" size: self.view.frame.size.width / 16] range: NSMakeRange(0, title.length)];
+    NSMutableAttributedString *message = [[NSMutableAttributedString alloc] initWithString: messageString];
+    [message addAttribute: NSFontAttributeName value: [UIFont fontWithName: @"Times new Roman" size: self.view.frame.size.width / 22] range: NSMakeRange(0, message.length)];
     prizeAlert =  [UIAlertController alertControllerWithTitle:@"" message: @""
                                                preferredStyle:UIAlertControllerStyleAlert];
     [prizeAlert setValue: title forKey: @"attributedTitle"];
@@ -444,13 +481,13 @@
 - (void) configureVoucherAlert
 {
     voucherAlert = [UIAlertController alertControllerWithTitle: @"" message:@"" preferredStyle:UIAlertControllerStyleAlert];
-    NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString: @"Voucher"];
-    [title addAttribute: NSFontAttributeName value: [UIFont systemFontOfSize: self.view.frame.size.width / 20] range: NSMakeRange(0, 7)];
+    NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString: @"Mã trò chơi"];
+    [title addAttribute: NSFontAttributeName value: [UIFont fontWithName: @"Times new Roman" size: self.view.frame.size.width / 18] range: NSMakeRange(0, 7)];
     [voucherAlert setValue: title forKey: @"attributedTitle"];
     
     NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem: voucherAlert.view attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem: nil attribute:NSLayoutAttributeNotAnAttribute multiplier: 1 constant: self.view.frame.size.height / 5];
     [voucherAlert.view addConstraint: height];
-    UIAlertAction *actionCancel = [UIAlertAction actionWithTitle: @"Cancel" style:UIAlertActionStyleCancel handler: nil];
+    UIAlertAction *actionCancel = [UIAlertAction actionWithTitle: @"Bỏ qua" style:UIAlertActionStyleCancel handler: nil];
     UIAlertAction *actionDongY = [UIAlertAction actionWithTitle:@"Đồng ý" style: UIAlertActionStyleDefault handler: ^(UIAlertAction *_Nonnull action)
                                   {
         if (![[self->voucherAlert textFields][0].text isEqualToString: @""])
@@ -476,7 +513,7 @@
     if ([voucher isEqualToString: @"voucher"])
     {
         voucherDecision = [[NSMutableAttributedString alloc] initWithString: @"Chúc mừng bạn đã nhận được một lượt chơi"];
-        [voucherDecision addAttribute: NSFontAttributeName value: [UIFont systemFontOfSize: self.view.frame.size.width / 20] range: NSMakeRange(0, voucherDecision.length)];
+        [voucherDecision addAttribute: NSFontAttributeName value: [UIFont fontWithName: @"Times new Roman" size: self.view.frame.size.width / 18] range: NSMakeRange(0, voucherDecision.length)];
         lanQuay += 1;
         self.lanQuayLabel.text = [NSString stringWithFormat: @"%d", lanQuay];
         
@@ -484,12 +521,12 @@
     else
     {
         voucherDecision = [[NSMutableAttributedString alloc] initWithString: @"Mã voucher không hợp lệ"];
-        [voucherDecision addAttribute: NSFontAttributeName value: [UIFont systemFontOfSize: self.view.frame.size.width / 20] range: NSMakeRange(0, 0)];
+        [voucherDecision addAttribute: NSFontAttributeName value: [UIFont fontWithName: @"Times new Roman" size: self.view.frame.size.width / 18] range: NSMakeRange(0, voucherDecision.length)];
     }
     
     voucherDecisionAlert = [UIAlertController alertControllerWithTitle:@"" message: @"" preferredStyle:UIAlertControllerStyleAlert];
     [voucherDecisionAlert setValue: voucherDecision forKey: @"attributedTitle"];
-    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem: voucherDecisionAlert.view attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem: nil attribute:NSLayoutAttributeNotAnAttribute multiplier: 1 constant: self.view.frame.size.height / 6];
+    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem: voucherDecisionAlert.view attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem: nil attribute:NSLayoutAttributeNotAnAttribute multiplier: 1 constant: self.view.frame.size.height / 7];
     [voucherDecisionAlert.view addConstraint: height];
     UIAlertAction *cancelBtn = [UIAlertAction actionWithTitle: @"Cancel" style: UIAlertActionStyleCancel handler:nil];
     

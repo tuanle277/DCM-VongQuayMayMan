@@ -1,0 +1,30 @@
+{
+    "nguoi_choi":
+    [
+        {
+            "ten": "Lê Văn A",
+            "SDT": "1923020321",
+            "thoi_gian": "22/12/2012"
+        },
+        {
+            "ten": "Nguyen Ly B",
+            "SDT": "12312312",
+            "thoi_gian": "22/12/2012"
+        },
+        {
+            "ten": "Tran Thi C",
+            "SDT": "845743434",
+            "thoi_gian": "9/4/2021"
+        },
+        {
+            "ten": "Van Tran D",
+            "SDT": "2322323112",
+            "thoi_gian": "02/03/2022"
+        },
+        {
+            "ten": "Nguyen Thi E",
+            "SDT": "2813123112",
+            "thoi_gian": "11/05/2022"
+        }
+    ]
+}

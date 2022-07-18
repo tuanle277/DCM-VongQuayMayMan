@@ -35,6 +35,8 @@
 		A4751C9C2875737E00398B2E /* CoCauView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4751C9B2875737E00398B2E /* CoCauView.m */; };
 		A4751CA52875749400398B2E /* CoCauCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4751CA32875749400398B2E /* CoCauCell.m */; };
 		A4751CA62875749400398B2E /* CoCauCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4751CA42875749400398B2E /* CoCauCell.xib */; };
+		A47911582883BB1900157A1F /* nguoichoi.json in Resources */ = {isa = PBXBuildFile; fileRef = A47911572883BB1900157A1F /* nguoichoi.json */; };
+		A479115B2883BD3200157A1F /* phanthuong.json in Resources */ = {isa = PBXBuildFile; fileRef = A479115A2883BD3200157A1F /* phanthuong.json */; };
 		A488C8D3286D465600C9FC0B /* VePhanVongQuay.m in Sources */ = {isa = PBXBuildFile; fileRef = A488C8D2286D465600C9FC0B /* VePhanVongQuay.m */; };
 		A4FDB77728769A200050BA00 /* CoCauHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDB77528769A200050BA00 /* CoCauHeader.m */; };
 		A4FDB77828769A200050BA00 /* CoCauHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4FDB77628769A200050BA00 /* CoCauHeader.xib */; };
@@ -91,6 +93,8 @@
 		A4751CA22875749400398B2E /* CoCauCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoCauCell.h; sourceTree = "<group>"; };
 		A4751CA32875749400398B2E /* CoCauCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoCauCell.m; sourceTree = "<group>"; };
 		A4751CA42875749400398B2E /* CoCauCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoCauCell.xib; sourceTree = "<group>"; };
+		A47911572883BB1900157A1F /* nguoichoi.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = nguoichoi.json; sourceTree = "<group>"; };
+		A479115A2883BD3200157A1F /* phanthuong.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = phanthuong.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
 		A488C8D1286D465600C9FC0B /* VePhanVongQuay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VePhanVongQuay.h; sourceTree = "<group>"; };
 		A488C8D2286D465600C9FC0B /* VePhanVongQuay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VePhanVongQuay.m; sourceTree = "<group>"; };
 		A4FDB77428769A200050BA00 /* CoCauHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoCauHeader.h; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 		A4613637286AA03D00BEF4BB /* DCM-VongQuay */ = {
 			isa = PBXGroup;
 			children = (
+				A479115A2883BD3200157A1F /* phanthuong.json */,
+				A47911572883BB1900157A1F /* nguoichoi.json */,
 				A4613661286AD78500BEF4BB /* Frameworks */,
 				A4156F6A287D372F003F62C3 /* Resource */,
 				A4645C41287D14FB00069FA6 /* ThuongTable */,
@@ -323,9 +329,11 @@
 			files = (
 				A4613648286AA03F00BEF4BB /* LaunchScreen.storyboard in Resources */,
 				A4645C46287D150C00069FA6 /* ThuongCell.xib in Resources */,
+				A479115B2883BD3200157A1F /* phanthuong.json in Resources */,
 				A4308045286C8F3F005CC431 /* Fortune-wheel.png in Resources */,
 				A46416DC287C083200480C92 /* TrungGiaiCell.xib in Resources */,
 				A4613645286AA03F00BEF4BB /* Assets.xcassets in Resources */,
+				A47911582883BB1900157A1F /* nguoichoi.json in Resources */,
 				A4751CA62875749400398B2E /* CoCauCell.xib in Resources */,
 				A4613643286AA03D00BEF4BB /* Main.storyboard in Resources */,
 				A4FDB77828769A200050BA00 /* CoCauHeader.xib in Resources */,

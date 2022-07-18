@@ -1,0 +1,36 @@
+{
+    "phan_thuong":
+    [
+        {
+            "co_cau": "Giải đặc biệt",
+            "phan_thuong": "Xe Alpha Wave",
+            "so_luong": 100
+        },
+        {
+            "co_cau": "Giải nhất",
+            "phan_thuong": "Thẻ nạp 100.000đ",
+            "so_luong": 100
+        },
+        {
+            "co_cau": "Giải nhì",
+            "phan_thuong": "Thẻ nạp 50.000đ",
+            "so_luong": 50
+        },
+        {
+            "co_cau": "Giải ba",
+            "phan_thuong": "Thẻ nạp 20.000đ",
+            "so_luong": 100
+        },
+        
+        {
+            "co_cau": "Giải tư",
+            "phan_thuong": "Thẻ nạp 10.000đ",
+            "so_luong": 100
+        },
+        {
+            "co_cau": "thua",
+            "phan_thuong": "Chúc may mắn",
+            "so_luong": 1
+        }
+    ]
+}
