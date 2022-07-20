@@ -25,8 +25,6 @@
     [self configureTableView];
     [self configureTableTitle];
     [superview addSubview: titleView];
-
-
     return self;
 }
 

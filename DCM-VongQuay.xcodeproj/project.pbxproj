@@ -11,12 +11,11 @@
 		A4308045286C8F3F005CC431 /* Fortune-wheel.png in Resources */ = {isa = PBXBuildFile; fileRef = A4308044286C8F3E005CC431 /* Fortune-wheel.png */; };
 		A461363A286AA03D00BEF4BB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4613639286AA03D00BEF4BB /* AppDelegate.m */; };
 		A461363D286AA03D00BEF4BB /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A461363C286AA03D00BEF4BB /* SceneDelegate.m */; };
-		A4613640286AA03D00BEF4BB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A461363F286AA03D00BEF4BB /* ViewController.m */; };
+		A4613640286AA03D00BEF4BB /* VongQuayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A461363F286AA03D00BEF4BB /* VongQuayViewController.m */; };
 		A4613643286AA03D00BEF4BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4613641286AA03D00BEF4BB /* Main.storyboard */; };
 		A4613645286AA03F00BEF4BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4613644286AA03F00BEF4BB /* Assets.xcassets */; };
 		A4613648286AA03F00BEF4BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4613646286AA03F00BEF4BB /* LaunchScreen.storyboard */; };
 		A461364B286AA03F00BEF4BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A461364A286AA03F00BEF4BB /* main.m */; };
-		A4613660286AD6C500BEF4BB /* VongQuay.m in Sources */ = {isa = PBXBuildFile; fileRef = A461365F286AD6C500BEF4BB /* VongQuay.m */; };
 		A4613666286ADE3300BEF4BB /* PhanVongQuay.m in Sources */ = {isa = PBXBuildFile; fileRef = A4613665286ADE3300BEF4BB /* PhanVongQuay.m */; };
 		A46416D6287BFDB000480C92 /* TrungGiaiView.m in Sources */ = {isa = PBXBuildFile; fileRef = A46416D5287BFDB000480C92 /* TrungGiaiView.m */; };
 		A46416DB287C083200480C92 /* TrungGiaiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A46416D9287C083200480C92 /* TrungGiaiCell.m */; };
@@ -32,12 +31,16 @@
 		A4666E7F286EF2C50081294E /* GiaiThuongModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4666E7E286EF2C50081294E /* GiaiThuongModel.m */; };
 		A4666E82286EF3160081294E /* NguoiChoiTrungGiaiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4666E81286EF3160081294E /* NguoiChoiTrungGiaiModel.m */; };
 		A46D0E8928743490001170A8 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = A46D0E8828743490001170A8 /* Utility.m */; };
+		A4716B1E28866652009E42CC /* VongQuayView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4716B1D28866652009E42CC /* VongQuayView.m */; };
+		A4716B2028866681009E42CC /* VongQuayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4716B1F28866681009E42CC /* VongQuayView.xib */; };
+		A4716B232886FB68009E42CC /* VoucherView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4716B222886FB68009E42CC /* VoucherView.m */; };
 		A4751C9C2875737E00398B2E /* CoCauView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4751C9B2875737E00398B2E /* CoCauView.m */; };
 		A4751CA52875749400398B2E /* CoCauCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4751CA32875749400398B2E /* CoCauCell.m */; };
 		A4751CA62875749400398B2E /* CoCauCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4751CA42875749400398B2E /* CoCauCell.xib */; };
 		A47911582883BB1900157A1F /* nguoichoi.json in Resources */ = {isa = PBXBuildFile; fileRef = A47911572883BB1900157A1F /* nguoichoi.json */; };
 		A479115B2883BD3200157A1F /* phanthuong.json in Resources */ = {isa = PBXBuildFile; fileRef = A479115A2883BD3200157A1F /* phanthuong.json */; };
-		A488C8D3286D465600C9FC0B /* VePhanVongQuay.m in Sources */ = {isa = PBXBuildFile; fileRef = A488C8D2286D465600C9FC0B /* VePhanVongQuay.m */; };
+		A483B2992887BAC7002EC362 /* ResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = A483B2982887BAC7002EC362 /* ResultView.m */; };
+		A483B29D2887C947002EC362 /* VePhanVongQuay.m in Sources */ = {isa = PBXBuildFile; fileRef = A483B29C2887C947002EC362 /* VePhanVongQuay.m */; };
 		A4FDB77728769A200050BA00 /* CoCauHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDB77528769A200050BA00 /* CoCauHeader.m */; };
 		A4FDB77828769A200050BA00 /* CoCauHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4FDB77628769A200050BA00 /* CoCauHeader.xib */; };
 /* End PBXBuildFile section */
@@ -51,15 +54,13 @@
 		A4613639286AA03D00BEF4BB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A461363B286AA03D00BEF4BB /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		A461363C286AA03D00BEF4BB /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		A461363E286AA03D00BEF4BB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A461363F286AA03D00BEF4BB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A461363E286AA03D00BEF4BB /* VongQuayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VongQuayViewController.h; sourceTree = "<group>"; };
+		A461363F286AA03D00BEF4BB /* VongQuayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VongQuayViewController.m; sourceTree = "<group>"; };
 		A4613642286AA03D00BEF4BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A4613644286AA03F00BEF4BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4613647286AA03F00BEF4BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4613649286AA03F00BEF4BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A461364A286AA03F00BEF4BB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A461365E286AD6C500BEF4BB /* VongQuay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VongQuay.h; sourceTree = "<group>"; };
-		A461365F286AD6C500BEF4BB /* VongQuay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VongQuay.m; sourceTree = "<group>"; };
 		A4613662286AD78600BEF4BB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A4613664286ADE3300BEF4BB /* PhanVongQuay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhanVongQuay.h; sourceTree = "<group>"; };
 		A4613665286ADE3300BEF4BB /* PhanVongQuay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhanVongQuay.m; sourceTree = "<group>"; };
@@ -88,6 +89,11 @@
 		A4666E86286EFE5E0081294E /* Note.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Note.md; sourceTree = "<group>"; };
 		A46D0E8728743490001170A8 /* Utility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
 		A46D0E8828743490001170A8 /* Utility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
+		A4716B1C28866652009E42CC /* VongQuayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VongQuayView.h; sourceTree = "<group>"; };
+		A4716B1D28866652009E42CC /* VongQuayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VongQuayView.m; sourceTree = "<group>"; };
+		A4716B1F28866681009E42CC /* VongQuayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VongQuayView.xib; sourceTree = "<group>"; };
+		A4716B212886FB68009E42CC /* VoucherView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VoucherView.h; sourceTree = "<group>"; };
+		A4716B222886FB68009E42CC /* VoucherView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VoucherView.m; sourceTree = "<group>"; };
 		A4751C9A2875737E00398B2E /* CoCauView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoCauView.h; sourceTree = "<group>"; };
 		A4751C9B2875737E00398B2E /* CoCauView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoCauView.m; sourceTree = "<group>"; };
 		A4751CA22875749400398B2E /* CoCauCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoCauCell.h; sourceTree = "<group>"; };
@@ -95,8 +101,10 @@
 		A4751CA42875749400398B2E /* CoCauCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoCauCell.xib; sourceTree = "<group>"; };
 		A47911572883BB1900157A1F /* nguoichoi.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = nguoichoi.json; sourceTree = "<group>"; };
 		A479115A2883BD3200157A1F /* phanthuong.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = phanthuong.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
-		A488C8D1286D465600C9FC0B /* VePhanVongQuay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VePhanVongQuay.h; sourceTree = "<group>"; };
-		A488C8D2286D465600C9FC0B /* VePhanVongQuay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VePhanVongQuay.m; sourceTree = "<group>"; };
+		A483B2972887BAC7002EC362 /* ResultView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResultView.h; sourceTree = "<group>"; };
+		A483B2982887BAC7002EC362 /* ResultView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResultView.m; sourceTree = "<group>"; };
+		A483B29B2887C947002EC362 /* VePhanVongQuay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VePhanVongQuay.h; sourceTree = "<group>"; };
+		A483B29C2887C947002EC362 /* VePhanVongQuay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VePhanVongQuay.m; sourceTree = "<group>"; };
 		A4FDB77428769A200050BA00 /* CoCauHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoCauHeader.h; sourceTree = "<group>"; };
 		A4FDB77528769A200050BA00 /* CoCauHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoCauHeader.m; sourceTree = "<group>"; };
 		A4FDB77628769A200050BA00 /* CoCauHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoCauHeader.xib; sourceTree = "<group>"; };
@@ -157,19 +165,20 @@
 			children = (
 				A479115A2883BD3200157A1F /* phanthuong.json */,
 				A47911572883BB1900157A1F /* nguoichoi.json */,
+				A483B29A2887C85B002EC362 /* Voucher */,
 				A4613661286AD78500BEF4BB /* Frameworks */,
 				A4156F6A287D372F003F62C3 /* Resource */,
 				A4645C41287D14FB00069FA6 /* ThuongTable */,
 				A46416D7287C080400480C92 /* TrungGiaiTable */,
 				A4FDB7792876D7180050BA00 /* CoCauTable */,
-				A4751CA92875916600398B2E /* Views */,
+				A4751CA92875916600398B2E /* VongQuay */,
 				A4666E7C286EF2AF0081294E /* Models */,
 				A4613638286AA03D00BEF4BB /* AppDelegate.h */,
 				A4613639286AA03D00BEF4BB /* AppDelegate.m */,
 				A461363B286AA03D00BEF4BB /* SceneDelegate.h */,
 				A461363C286AA03D00BEF4BB /* SceneDelegate.m */,
-				A461363E286AA03D00BEF4BB /* ViewController.h */,
-				A461363F286AA03D00BEF4BB /* ViewController.m */,
+				A461363E286AA03D00BEF4BB /* VongQuayViewController.h */,
+				A461363F286AA03D00BEF4BB /* VongQuayViewController.m */,
 				A4613644286AA03F00BEF4BB /* Assets.xcassets */,
 				A4613646286AA03F00BEF4BB /* LaunchScreen.storyboard */,
 				A4613641286AA03D00BEF4BB /* Main.storyboard */,
@@ -234,23 +243,27 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		A4751CA92875916600398B2E /* Views */ = {
+		A4751CA92875916600398B2E /* VongQuay */ = {
 			isa = PBXGroup;
 			children = (
-				A4751CAA2875917000398B2E /* VongQuay */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		A4751CAA2875917000398B2E /* VongQuay */ = {
-			isa = PBXGroup;
-			children = (
-				A461365E286AD6C500BEF4BB /* VongQuay.h */,
-				A461365F286AD6C500BEF4BB /* VongQuay.m */,
-				A488C8D1286D465600C9FC0B /* VePhanVongQuay.h */,
-				A488C8D2286D465600C9FC0B /* VePhanVongQuay.m */,
+				A4716B1C28866652009E42CC /* VongQuayView.h */,
+				A4716B1F28866681009E42CC /* VongQuayView.xib */,
+				A4716B1D28866652009E42CC /* VongQuayView.m */,
+				A483B29B2887C947002EC362 /* VePhanVongQuay.h */,
+				A483B29C2887C947002EC362 /* VePhanVongQuay.m */,
 			);
 			path = VongQuay;
+			sourceTree = "<group>";
+		};
+		A483B29A2887C85B002EC362 /* Voucher */ = {
+			isa = PBXGroup;
+			children = (
+				A4716B212886FB68009E42CC /* VoucherView.h */,
+				A4716B222886FB68009E42CC /* VoucherView.m */,
+				A483B2972887BAC7002EC362 /* ResultView.h */,
+				A483B2982887BAC7002EC362 /* ResultView.m */,
+			);
+			path = Voucher;
 			sourceTree = "<group>";
 		};
 		A4FDB7792876D7180050BA00 /* CoCauTable */ = {
@@ -333,6 +346,7 @@
 				A4308045286C8F3F005CC431 /* Fortune-wheel.png in Resources */,
 				A46416DC287C083200480C92 /* TrungGiaiCell.xib in Resources */,
 				A4613645286AA03F00BEF4BB /* Assets.xcassets in Resources */,
+				A4716B2028866681009E42CC /* VongQuayView.xib in Resources */,
 				A47911582883BB1900157A1F /* nguoichoi.json in Resources */,
 				A4751CA62875749400398B2E /* CoCauCell.xib in Resources */,
 				A4613643286AA03D00BEF4BB /* Main.storyboard in Resources */,
@@ -391,13 +405,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4613660286AD6C500BEF4BB /* VongQuay.m in Sources */,
 				A4666E7F286EF2C50081294E /* GiaiThuongModel.m in Sources */,
 				A4751CA52875749400398B2E /* CoCauCell.m in Sources */,
-				A4613640286AA03D00BEF4BB /* ViewController.m in Sources */,
+				A4613640286AA03D00BEF4BB /* VongQuayViewController.m in Sources */,
 				A4613666286ADE3300BEF4BB /* PhanVongQuay.m in Sources */,
 				A46416E5287C18E300480C92 /* TrungGiaiHeader.m in Sources */,
 				A4645C49287D16D300069FA6 /* ThuongView.m in Sources */,
+				A483B2992887BAC7002EC362 /* ResultView.m in Sources */,
+				A483B29D2887C947002EC362 /* VePhanVongQuay.m in Sources */,
 				A4645C4C287D19FF00069FA6 /* ThuongHeader.m in Sources */,
 				A4751C9C2875737E00398B2E /* CoCauView.m in Sources */,
 				A4666E7B286EC90A0081294E /* Segment.m in Sources */,
@@ -407,9 +422,10 @@
 				A4FDB77728769A200050BA00 /* CoCauHeader.m in Sources */,
 				A4645C45287D150C00069FA6 /* ThuongCell.m in Sources */,
 				A461364B286AA03F00BEF4BB /* main.m in Sources */,
+				A4716B1E28866652009E42CC /* VongQuayView.m in Sources */,
 				A461363D286AA03D00BEF4BB /* SceneDelegate.m in Sources */,
 				A46416DB287C083200480C92 /* TrungGiaiCell.m in Sources */,
-				A488C8D3286D465600C9FC0B /* VePhanVongQuay.m in Sources */,
+				A4716B232886FB68009E42CC /* VoucherView.m in Sources */,
 				A46416D6287BFDB000480C92 /* TrungGiaiView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
