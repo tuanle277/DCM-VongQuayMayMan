@@ -14,6 +14,7 @@ Source code -> branch master
 - Autolayout
 - Test JSON parsing using mockJSON
 - Độ chính xác vòng quay tới lúc hiện tại: 100%
+- Chuyển vòng quay thành UIView
 
 **Chưa làm**
 - đưa background của vòng quay may mắn vào UI
@@ -21,7 +22,6 @@ Source code -> branch master
 - call APIs
 
 **Đang làm**
-- Partition code (đưa vòng tròn thành object)
 
 Lists of UI:
 - introTitle
